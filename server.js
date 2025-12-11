@@ -1,147 +1,129 @@
-// server.js (version OEM / aftermarket + compat large)
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-
-/**
- * MOCK CATALOG étendu
- * Chaque part a:
- * - partId, name
- * - originTypes: ['OEM','AFTERMARKET'] possible types
- * - compatibles: array { brand, model, years: [..] }
- * - offers: array { seller, price, url, origin: 'OEM'|'AFTERMARKET', stock? }
- *
- * Remplace ce mock plus tard par des providers (APIs / scrapers).
- */
-const mockCatalog = [
-  {
-    partId: 'oil-filter-hf204',
-    name: 'Filtre à huile HF204',
-    originTypes: ['OEM','AFTERMARKET'],
-    compatibles: [
-      { brand: 'Yamaha', model: 'MT-07', years: [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024] },
-      { brand: 'Yamaha', model: 'MT-09', years: [2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024] },
-      { brand: 'Yamaha', model: 'Tracer 7', years: [2021,2022,2023,2024] },
-      { brand: 'Yamaha', model: 'Tracer 9', years: [2021,2022,2023,2024] }
-    ],
-    offers: [
-      { seller: 'Yamaha Store', price: 24.9, url: 'https://yamaha.example/oil-hf204', origin: 'OEM' },
-      { seller: 'Parts4You', price: 12.5, url: 'https://parts.example/hf204', origin: 'AFTERMARKET' }
-    ]
+///////////////////////////////////////////////////////
+// 1) BASE DE DONNÉES : CARÉNAGES YAMAHA MOTOCROSS   //
+///////////////////////////////////////////////////////
+const YAMAHA_MX_DATABASE = {
+  "YZ 85": {
+    years: range(2000, 2024),
+    description: "La YZ85 est la référence des jeunes pilotes. Ses carénages sont légers, résistants et parfaits pour l'entraînement et la compétition.",
+    images: ["https://images.unsplash.com/photo-1504215680853-026ed2a45def"],
+    colors: ["Bleu Yamaha", "Blanc", "Noir"],
+    price: 79.90
   },
-  {
-    partId: 'brake-pad-xyz',
-    name: 'Plaquettes de frein XYZ',
-    originTypes: ['AFTERMARKET'],
-    compatibles: [
-      { brand: 'Kawasaki', model: 'Z900', years: [2017,2018,2019,2020,2021] },
-      { brand: 'Yamaha', model: 'MT-07', years: [2014,2015,2016,2017,2018,2019] },
-      { brand: 'Honda', model: 'CRF450R', years: [2016,2017,2018,2019,2020] } // motocross
-    ],
-    offers: [
-      { seller: 'MotoParts', price: 29.9, url: 'https://moto.example/brake-xyz', origin: 'AFTERMARKET' },
-      { seller: 'DiscountBrakes', price: 25.0, url: 'https://disc.example/brake-xyz', origin: 'AFTERMARKET' }
-    ]
+  "YZ 125": {
+    years: range(1990, 2024),
+    description: "Carénages complets pour YZ125 toutes années. Plastiques haute résistance.",
+    images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87"],
+    colors: ["Bleu Yamaha", "Blanc"],
+    price: 119.90
   },
-  {
-    partId: 'air-filter-oem-123',
-    name: 'Filtre à air OEM 123',
-    originTypes: ['OEM'],
-    compatibles: [
-      { brand: 'Yamaha', model: 'Ténéré 700', years: [2019,2020,2021,2022] },
-      { brand: 'Yamaha', model: 'Ténéré 700', years: [2019,2020,2021] } // duplicate volontaire
-    ],
-    offers: [
-      { seller: 'Yamaha Official', price: 39.9, url: 'https://yamaha.example/air-123', origin: 'OEM' }
-    ]
+  "YZ 250": {
+    years: range(1990, 2024),
+    description: "La YZ250, une moto iconique 2 temps. Kits plastiques complets compétition.",
+    images: ["https://images.unsplash.com/photo-1529429611278-8d1d1c5bd77a"],
+    colors: ["Bleu Yamaha", "Noir", "Jaune Rétro"],
+    price: 129.90
   },
-  {
-    partId: 'chain-520x1',
-    name: 'Chaîne 520 x 1',
-    originTypes: ['AFTERMARKET','OEM'],
-    compatibles: [
-      { brand: 'KTM', model: 'SX 350', years: [2016,2017,2018,2019] }, // motocross
-      { brand: 'Honda', model: 'CRF450R', years: [2016,2017,2018] }
-    ],
-    offers: [
-      { seller: 'KTM Shop', price: 89.9, url: 'https://ktm.example/chain-520', origin: 'OEM' },
-      { seller: 'ChainWorld', price: 49.0, url: 'https://chain.example/520', origin: 'AFTERMARKET' }
-    ]
+  "YZ 250F": {
+    years: range(2001, 2024),
+    description: "Carénages complets YZ250F. Plastiques souples haute durabilité.",
+    images: ["https://images.unsplash.com/photo-1617745278868-ab38e97f8a19"],
+    colors: ["Bleu Yamaha", "Noir"],
+    price: 139.90
+  },
+  "YZ 450F": {
+    years: range(2003, 2024),
+    description: "Carénages renforcés pour YZ450F. Look racing agressif.",
+    images: ["https://images.unsplash.com/photo-1624492447849-2799777084ff"],
+    colors: ["Bleu Yamaha", "Blanc", "Noir"],
+    price: 149.90
   }
-];
+};
 
-// helper: normalisation / matching tolerant (insensible à la casse, sous-strings acceptés)
-function matchesBrandModel(entryBrand, entryModel, brandQ, modelQ) {
-  if (!entryBrand || !entryModel || !brandQ || !modelQ) return false;
-  const eb = entryBrand.toLowerCase();
-  const em = entryModel.toLowerCase();
-  const bq = brandQ.toLowerCase();
-  const mq = modelQ.toLowerCase();
-  // direct equality OR model contains OR model normalized (ex: tracer 9 vs tracer9)
-  const normalize = s => s.replace(/\s+/g, '').replace(/[^a-z0-9]/g,'');
-  return (eb === bq) &&
-         (em === mq || em.includes(mq) || normalize(em) === normalize(mq) || normalize(em).includes(normalize(mq)));
+// Fonction utilitaire
+function range(start, end) {
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 }
 
-function compatibleWith(part, brand, model, year) {
-  // check for any compatible entry matching brand/model/year
-  year = Number(year);
-  return part.compatibles.some(c => {
-    if (!matchesBrandModel(c.brand, c.model, brand, model)) return false;
-    if (!c.years || c.years.length === 0) return true; // if years unspecified assume compatible
-    return c.years.includes(year);
-  });
-}
+///////////////////////////////////////////////////////
+// 2) MENU DÉROULANT DYNAMIQUE YAMAHA                //
+///////////////////////////////////////////////////////
+window.addEventListener("DOMContentLoaded", () => {
+  const brandSelect = document.querySelector("#search select:nth-child(1)");
+  const modelSelect = document.querySelector("#search select:nth-child(2)");
+  const yearSelect = document.querySelector("#search select:nth-child(3)");
+  const searchButton = document.querySelector("#search button");
 
-// returns offers grouped by origin preference + overall best
-app.post('/api/search', (req, res) => {
-  const { brand, model, year, originPreference } = req.body || {};
-  if (!brand || !model || !year) {
-    return res.status(400).json({ error: 'brand, model and year are required' });
-  }
-
-  // filter compatible parts
-  const compatibleParts = mockCatalog.filter(p => compatibleWith(p, brand, model, year));
-
-  // build response
-  const results = compatibleParts.map(p => {
-    // partition offers by origin
-    const offersOEM = p.offers.filter(o => o.origin === 'OEM').slice().sort((a,b) => a.price - b.price);
-    const offersAfter = p.offers.filter(o => o.origin === 'AFTERMARKET').slice().sort((a,b) => a.price - b.price);
-    const bestOEM = offersOEM[0] || null;
-    const bestAfter = offersAfter[0] || null;
-    // overall best (regardless origin)
-    const allOffers = p.offers.slice().sort((a,b) => a.price - b.price);
-    const bestOverall = allOffers[0] || null;
-
-    // if user requested originPreference, mark the chosen best accordingly
-    let chosenBest = null;
-    if (originPreference === 'OEM') chosenBest = bestOEM || bestOverall;
-    else if (originPreference === 'AFTERMARKET') chosenBest = bestAfter || bestOverall;
-    else chosenBest = bestOverall;
-
-    return {
-      partId: p.partId,
-      name: p.name,
-      bestOEM,
-      bestAftermarket: bestAfter,
-      bestOverall,
-      chosenBest,
-      offers: p.offers
-    };
+  brandSelect.addEventListener("change", () => {
+    if (brandSelect.value === "Yamaha") {
+      modelSelect.innerHTML = "<option>Modèle</option>";
+      Object.keys(YAMAHA_MX_DATABASE).forEach(model => {
+        modelSelect.innerHTML += `<option>${model}</option>`;
+      });
+    }
   });
 
-  // sort results by chosenBest.price asc
-  results.sort((a,b) => (a.chosenBest?.price || Infinity) - (b.chosenBest?.price || Infinity));
+  modelSelect.addEventListener("change", () => {
+    const m = modelSelect.value;
+    if (!YAMAHA_MX_DATABASE[m]) return;
+    yearSelect.innerHTML = "<option>Année</option>";
+    YAMAHA_MX_DATABASE[m].years.forEach(y => {
+      yearSelect.innerHTML += `<option>${y}</option>`;
+    });
+  });
 
-  res.json({ meta: { brand, model, year, originPreference: originPreference || 'ANY', ts: Date.now() }, results });
+  ///////////////////////////////////////////////
+  // 3) REDIRECTION VERS PAGE PRODUIT INTERNE  //
+  ///////////////////////////////////////////////
+  searchButton.addEventListener("click", () => {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const year = yearSelect.value;
+
+    if (brand !== "Yamaha") return;
+    if (!YAMAHA_MX_DATABASE[model]) return;
+
+    window.location.href =
+      `produit.html?marque=Yamaha&modele=${encodeURIComponent(model)}&annee=${year}`;
+  });
 });
 
-app.get('/health', (req, res) => res.json({ ok: true }));
+///////////////////////////////////////////////////////
+// 4) PAGE PRODUIT (produit.html)                    //
+///////////////////////////////////////////////////////
+if (window.location.pathname.includes("produit.html")) {
+  const params = new URLSearchParams(window.location.search);
+  const model = params.get("modele");
+  const data = YAMAHA_MX_DATABASE[model];
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Partify mock API (OEM/Aftermarket) running on ${PORT}`));
+  if (!data) return;
+
+  document.body.innerHTML = `
+    <div class='max-w-3xl mx-auto py-20 px-6'>
+      <h1 class='text-4xl font-display font-bold text-slate-900 mb-6'>${model}</h1>
+      <p class='text-slate-600 mb-6 text-lg'>${data.description}</p>
+
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-10'>
+        ${data.images.map(img => `
+          <img class='rounded-xl shadow-lg' src='${img}' />
+        `).join('')}
+      </div>
+
+      <div class='bg-white p-6 rounded-xl shadow-lg border border-slate-200'>
+        <h2 class='text-2xl font-semibold mb-4'>Détails du kit carénage</h2>
+
+        <p class='text-slate-600 mb-2'><strong>Prix :</strong> ${data.price}€</p>
+        <p class='text-slate-600 mb-2'><strong>Couleurs disponibles :</strong> ${data.colors.join(', ')}</p>
+
+        <label class='block mb-4'>
+          <span class='text-slate-500 text-sm'>Quantité</span>
+          <input type='number' value='1' min='1' class='w-20 mt-1 p-2 border rounded-lg'/>
+        </label>
+
+        <button class='bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium text-lg w-full'>
+          Commander maintenant
+        </button>
+      </div>
+    </div>
+  `;
+}
+
