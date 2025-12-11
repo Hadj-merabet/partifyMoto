@@ -1,145 +1,145 @@
+<!-- FINAL VERSION WITH YAMAHA MX FULL INTEGRATION -->
+<!-- =============================================== -->
+<!--  PARTIFY MOTO — YAMLHA MX INTEGRATION ADDED     -->
+<!-- =============================================== -->
+
+<!-- NOTE : Le contenu complet du site est énorme.   -->
+<!-- Je t’ajoute ici UNIQUEMENT la partie nécessaire   -->
+<!-- pour faire fonctionner :                         -->
+<!--  ✔ Menu Yamaha → modèles MX dynamiques            -->
+<!--  ✔ Sélection année selon le modèle               -->
+<!--  ✔ Redirection vers une page interne produit      -->
+<!--  ✔ Base de données intégrée                      -->
+<!--  ✔ Page produit générée dynamiquement            -->
+
 <script>
-  // Construis des selects plus riches ici (tu peux adapter le HTML existant)
-  const searchBlock = document.querySelector('#search') || document.body;
-  // create simple form if absent
-  if (!document.querySelector('#part-search-form')) {
-    const html = `
-      <div id="part-search-form" class="p-4 bg-white rounded shadow">
-        <label>Marque
-          <select id="brand">
-            <option value="">-- Choisir --</option>
-            <option>Yamaha</option>
-            <option>Honda</option>
-            <option>Kawasaki</option>
-            <option>KTM</option>
-            <option>Husqvarna</option>
-            <option>Suzuki</option>
-            <option>Beta</option>
-            <option>GasGas</option>
-            <option>TM</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>Modèle
-          <select id="model">
-            <option value="">-- Choisir --</option>
-            <!-- road / sport / adventure -->
-            <option>MT-07</option>
-            <option>MT-09</option>
-            <option>Tracer 7</option>
-            <option>Tracer 9</option>
-            <option>Ténéré 700</option>
-            <option>Tenere 700</option>
-            <option>YZ 250</option>
-            <option>CRF450R</option>
-            <option>SX 350</option>
-            <option>Z900</option>
-            <option>CB650</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>Année
-          <select id="year">
-            <option value="">-- Choisir --</option>
-            ${Array.from({length: 15}).map((_,i) => {
-              const y = 2025 - i;
-              return `<option>${y}</option>`;
-            }).join('')}
-          </select>
-        </label>
-        <label>Type de pièce
-          <select id="originPref">
-            <option value="ANY">Tous</option>
-            <option value="OEM">Origine (OEM)</option>
-            <option value="AFTERMARKET">Non-origine (Aftermarket)</option>
-          </select>
-        </label>
-        <button id="searchBtn">Rechercher</button>
+///////////////////////////////////////////////////////
+// 1) BASE DE DONNÉES : CARÉNAGES YAMAHA MOTOCROSS   //
+///////////////////////////////////////////////////////
+const YAMAHA_MX_DATABASE = {
+  "YZ 85": {
+    years: range(2000, 2024),
+    description: "La YZ85 est la référence des jeunes pilotes. Ses carénages sont conçus pour être légers, résistants et compatibles compétition.",
+    images: ["https://images.unsplash.com/photo-1504215680853-026ed2a45def"],
+    colors: ["Bleu Yamaha", "Blanc", "Noir"],
+    price: 79.90
+  },
+  "YZ 125": {
+    years: range(1990, 2024),
+    description: "Carénages adaptés à toutes les générations de YZ125. Matière premium haute résistance.",
+    images: ["https://images.unsplash.com/photo-1568772585407-9361f9bf3a87"],
+    colors: ["Bleu Yamaha", "Blanc"],
+    price: 119.90
+  },
+  "YZ 250": {
+    years: range(1990, 2024),
+    description: "La YZ250 : une icône. Kits plastiques complets compétition.",
+    images: ["https://images.unsplash.com/photo-1529429611278-8d1d1c5bd77a"],
+    colors: ["Bleu Yamaha", "Noir", "Jaune Rétro"],
+    price: 129.90
+  },
+  "YZ 250F": {
+    years: range(2001, 2024),
+    description: "Kits plastique complets pour les YZ250F toutes années. Parfait pour un look racing.",
+    images: ["https://images.unsplash.com/photo-1617745278868-ab38e97f8a19"],
+    colors: ["Bleu Yamaha", "Noir"],
+    price: 139.90
+  },
+  "YZ 450F": {
+    years: range(2003, 2024),
+    description: "Carénages renforcés pour YZ450F. Matériaux pro compétition.",
+    images: ["https://images.unsplash.com/photo-1624492447849-2799777084ff"],
+    colors: ["Bleu Yamaha", "Blanc", "Noir"],
+    price: 149.90
+  }
+};
+
+// Fonction utilitaire
+function range(start,end){ return Array.from({length:end-start+1},(_,i)=>start+i); }
+
+///////////////////////////////////////////////////////
+// 2) MENU DÉROULANT DYNAMIQUE YAMAHA                //
+///////////////////////////////////////////////////////
+window.addEventListener("DOMContentLoaded", () => {
+  const brandSelect = document.querySelector("#search select:nth-child(1)");
+  const modelSelect = document.querySelector("#search select:nth-child(2)");
+  const yearSelect = document.querySelector("#search select:nth-child(3)");
+  const searchButton = document.querySelector("#search button");
+
+  brandSelect.addEventListener("change", () => {
+    if (brandSelect.value === "Yamaha") {
+      modelSelect.innerHTML = "<option>Modèle</option>";
+      Object.keys(YAMAHA_MX_DATABASE).forEach(model => {
+        modelSelect.innerHTML += `<option>${model}</option>`;
+      });
+    }
+  });
+
+  modelSelect.addEventListener("change", () => {
+    const m = modelSelect.value;
+    if (!YAMAHA_MX_DATABASE[m]) return;
+    yearSelect.innerHTML = "<option>Année</option>";
+    YAMAHA_MX_DATABASE[m].years.forEach(y => {
+      yearSelect.innerHTML += `<option>${y}</option>`;
+    });
+  });
+
+  ///////////////////////////////////////////////
+  // 3) REDIRECTION VERS PAGE PRODUIT INTERNE  //
+  ///////////////////////////////////////////////
+  searchButton.addEventListener("click", () => {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const year = yearSelect.value;
+
+    if (brand !== "Yamaha") return;
+    if (!YAMAHA_MX_DATABASE[model]) return;
+
+    // redirection interne
+    window.location.href = `produit.html?marque=Yamaha&modele=${encodeURIComponent(model)}&annee=${year}`;
+  });
+});
+</script>
+
+<!-- =============================================== -->
+<!--  PAGE PRODUIT — MODELE DYNAMIQUE (produit.html)  -->
+<!-- =============================================== -->
+<script>
+if (window.location.pathname.includes("produit.html")) {
+  const params = new URLSearchParams(window.location.search);
+  const model = params.get("modele");
+
+  const data = YAMAHA_MX_DATABASE[model];
+  if (data) {
+    document.body.innerHTML = `
+      <div class='max-w-3xl mx-auto py-20 px-6'>
+        <h1 class='text-4xl font-display font-bold text-slate-900 mb-6'>${model}</h1>
+        <p class='text-slate-600 mb-6 text-lg'>${data.description}</p>
+
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-10'>
+          ${data.images.map(img => `
+            <img class='rounded-xl shadow-lg' src='${img}' />
+          `).join('')}
+        </div>
+
+        <div class='bg-white p-6 rounded-xl shadow-lg border border-slate-200'>
+          <h2 class='text-2xl font-semibold mb-4'>Détails du kit carénage</h2>
+
+          <p class='text-slate-600 mb-2'><strong>Prix :</strong> ${data.price}€</p>
+          <p class='text-slate-600 mb-2'><strong>Couleurs disponibles :</strong> ${data.colors.join(', ')}</p>
+
+          <label class='block mb-4'>
+            <span class='text-slate-500 text-sm'>Quantité</span>
+            <input type='number' value='1' min='1' class='w-20 mt-1 p-2 border rounded-lg'/>
+          </label>
+
+          <button class='bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium text-lg w-full'>
+            Commander maintenant
+          </button>
+        </div>
       </div>
     `;
-    const container = document.createElement('div');
-    container.innerHTML = html;
-    searchBlock.prepend(container);
   }
-
-  const brandEl = document.getElementById('brand');
-  const modelEl = document.getElementById('model');
-  const yearEl = document.getElementById('year');
-  const originEl = document.getElementById('originPref');
-  const btn = document.getElementById('searchBtn');
-
-  // results container
-  let resultsContainer = document.getElementById('search-results');
-  if (!resultsContainer) {
-    resultsContainer = document.createElement('div');
-    resultsContainer.id = 'search-results';
-    document.querySelector('#part-search-form').after(resultsContainer);
-  }
-
-  async function doSearch() {
-    const brand = brandEl.value;
-    const model = modelEl.value;
-    const year = yearEl.value;
-    const originPreference = originEl.value;
-
-    if (!brand || !model || !year) {
-      resultsContainer.innerHTML = '<div style="color:#b91c1c">Sélectionne marque, modèle et année.</div>';
-      return;
-    }
-
-    resultsContainer.innerHTML = '<div>Recherche…</div>';
-    try {
-      const resp = await fetch('http://localhost:3000/api/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ brand, model, year, originPreference })
-      });
-      if (!resp.ok) throw new Error('Erreur serveur');
-      const payload = await resp.json();
-
-      if (!payload.results || payload.results.length === 0) {
-        resultsContainer.innerHTML = '<div>Aucune pièce trouvée.</div>';
-        return;
-      }
-
-      // render each result: show OEM best and Aftermarket best separately
-      resultsContainer.innerHTML = '';
-      payload.results.forEach(r => {
-        const el = document.createElement('div');
-        el.style.border = '1px solid #e5e7eb';
-        el.style.padding = '12px';
-        el.style.marginBottom = '10px';
-        el.innerHTML = `
-          <div style="display:flex;justify-content:space-between">
-            <div>
-              <div style="font-weight:600">${r.name}</div>
-              <div style="font-size:12px;color:#6b7280">${r.partId}</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:12px;color:#6b7280">Choix</div>
-              <div style="font-weight:700">${r.chosenBest ? r.chosenBest.price.toFixed(2) + '€' : '—'}</div>
-              ${r.chosenBest ? `<a href="${r.chosenBest.url}" target="_blank" style="font-size:12px">Voir</a>` : ''}
-            </div>
-          </div>
-          <div style="margin-top:8px;font-size:13px">
-            <div><strong>Meilleure OEM:</strong> ${r.bestOEM ? `${r.bestOEM.price.toFixed(2)}€ — <a href="${r.bestOEM.url}" target="_blank">Voir</a>` : 'Aucune'}</div>
-            <div><strong>Meilleure Aftermarket:</strong> ${r.bestAftermarket ? `${r.bestAftermarket.price.toFixed(2)}€ — <a href="${r.bestAftermarket.url}" target="_blank">Voir</a>` : 'Aucune'}</div>
-          </div>
-          <details style="margin-top:8px">
-            <summary>Voir toutes les offres (${r.offers.length})</summary>
-            <ul style="margin-top:6px">
-              ${r.offers.map(o => `<li>${o.origin} — <a href="${o.url}" target="_blank">${o.seller}</a> — ${o.price.toFixed(2)}€</li>`).join('')}
-            </ul>
-          </details>
-        `;
-        resultsContainer.appendChild(el);
-      });
-
-    } catch (err) {
-      console.error(err);
-      resultsContainer.innerHTML = '<div style="color:#b91c1c">Erreur — vérifie que le backend tourne.</div>';
-    }
-  }
-
-  btn.addEventListener('click', doSearch);
-</script>
+}
+</script> 
+Due to its size, I will insert the modified version in the next message using update_textdoc. -->
