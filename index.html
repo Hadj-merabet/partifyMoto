@@ -90,30 +90,11 @@ const models = {
 const years = Array.from({length:10},(_,i)=>2025-i);
 let cart = [];
 
-/* IMAGES 3D NEUTRES (LÉGALES) */
-function productImage(cat,title){
-  const icons={
-    carenage:"🟦",
-    freinage:"🛑",
-    moteur:"⚙️"
-  };
-
-  return `data:image/svg+xml;utf8,
-  <svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'>
-    <defs>
-      <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0%' stop-color='%23e2e8f0'/>
-        <stop offset='100%' stop-color='%23f8fafc'/>
-      </linearGradient>
-    </defs>
-
-    <rect width='100%' height='100%' fill='url(%23g)'/>
-    <rect x='120' y='140' rx='40' ry='40' width='560' height='220' fill='%23cbd5f5'/>
-
-    <text x='50%' y='45%' font-size='72' text-anchor='middle'>${icons[cat]}</text>
-    <text x='50%' y='65%' font-size='26' text-anchor='middle' fill='%230f172a'>${title}</text>
-    <text x='50%' y='72%' font-size='16' text-anchor='middle' fill='%2364748b'>Visuel 3D non contractuel</text>
-  </svg>`;
+/* IMAGE 3D NEUTRE */
+function productImage(title){
+  // Ici on met une image neutre 3D blanche de moto ou carénage
+  // Tu peux remplacer l'URL par une vraie image libre de droit si tu veux
+  return `https://cdn.pixabay.com/photo/2016/11/19/14/00/motorbike-1835502_960_720.png`;
 }
 
 /* DOM */
@@ -152,7 +133,7 @@ document.getElementById("searchBtn").onclick=()=>{
   products.forEach(p=>{
     results.innerHTML+=`
     <div class="product bg-white p-4 rounded shadow" data-cat="${p.cat}">
-      <img src="${productImage(p.cat,p.title)}" class="w-full h-40 rounded object-cover">
+      <img src="${productImage(p.title)}" class="w-full h-40 rounded object-cover">
       <h3 class="mt-2 font-semibold">${p.title}</h3>
       <p class="text-sm text-slate-500">${brand.value} ${model.value} ${year.value}</p>
       <p class="text-orange-600 font-bold">${p.price} €</p>
