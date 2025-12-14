@@ -5,25 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Partify Moto</title>
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Icons -->
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <script>
 tailwind.config = {
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter'],
-        display: ['Space Grotesk']
-      },
       colors: {
         brand: {500:'#f97316',600:'#ea580c'}
       }
@@ -38,32 +26,34 @@ tailwind.config = {
 <!-- NAVBAR -->
 <nav class="fixed top-0 w-full bg-white border-b z-50">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <span class="font-display font-semibold text-lg">PARTIFY MOTO</span>
+    <span class="font-semibold text-lg">PARTIFY MOTO</span>
 
     <div class="flex items-center gap-6">
-      <button onclick="toggleCart()" class="relative">
+      <a href="#panier" class="font-medium text-sm text-slate-700 hover:text-brand-600">
+        Voir le panier
+      </a>
+      <div class="relative">
         <span class="iconify text-xl" data-icon="lucide:shopping-cart"></span>
         <span id="cartCount"
           class="absolute -top-2 -right-2 bg-brand-600 text-white text-xs px-1.5 rounded-full">0</span>
-      </button>
+      </div>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="pt-32 pb-20 text-center max-w-3xl mx-auto px-6">
-  <h1 class="text-4xl font-display font-semibold text-slate-900">
-    Trouve tes pièces moto au meilleur prix
+  <h1 class="text-4xl font-semibold text-slate-900">
+    Pièces moto au meilleur prix
   </h1>
   <p class="text-slate-500 mt-4">
-    Carénages origine et premium compatibles avec ta moto
+    Carénages d’origine et premium compatibles
   </p>
 </header>
 
 <!-- PRODUITS -->
-<section class="max-w-5xl mx-auto px-6 grid gap-6 pb-20">
+<section class="max-w-5xl mx-auto px-6 pb-24 space-y-6">
 
-  <!-- PRODUIT -->
   <div class="border rounded-xl p-4 grid md:grid-cols-3 gap-4">
     <img class="rounded-lg object-cover h-40 w-full"
       src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
@@ -74,13 +64,13 @@ tailwind.config = {
       </h3>
 
       <p class="text-sm text-slate-500 mt-2">
-        Kit carénage premium Acerbis, résistant et léger.
+        Kit carénage premium, résistant et léger.
       </p>
 
       <div class="mt-4 flex items-center justify-between">
         <span class="text-xl font-bold">99,90 €</span>
 
-        <div class="flex gap-2 items-center">
+        <div class="flex gap-2">
           <select id="qty1" class="border rounded-lg px-3 py-2 text-sm">
             <option>1</option><option>2</option><option>3</option>
           </select>
@@ -101,30 +91,26 @@ tailwind.config = {
 
 </section>
 
-<!-- PANIER -->
-<div id="cartModal" class="fixed inset-0 bg-black/40 hidden z-50">
-  <div class="absolute right-0 top-0 h-full w-full sm:w-[420px] bg-white p-6 overflow-y-auto">
-
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-lg font-semibold">Mon panier</h2>
-      <button onclick="toggleCart()">✕</button>
-    </div>
+<!-- PAGE PANIER -->
+<section id="panier" class="bg-slate-50 py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-slate-900 mb-8">
+      Mon panier
+    </h2>
 
     <div id="cartItems" class="space-y-4"></div>
 
-    <div class="border-t mt-6 pt-4">
-      <div class="flex justify-between font-semibold text-lg">
-        <span>Total</span>
-        <span id="cartTotal">0 €</span>
-      </div>
-
-      <button class="w-full mt-4 bg-brand-600 text-white py-3 rounded-lg">
-        Passer au paiement
-      </button>
+    <div class="border-t mt-6 pt-6 flex justify-between items-center">
+      <span class="text-xl font-semibold">Total</span>
+      <span id="cartTotal" class="text-xl font-bold">0 €</span>
     </div>
 
+    <button
+      class="w-full mt-6 bg-brand-600 hover:bg-brand-500 text-white py-3 rounded-lg font-medium">
+      Passer au paiement
+    </button>
   </div>
-</div>
+</section>
 
 <!-- SCRIPT PANIER -->
 <script>
@@ -143,6 +129,7 @@ function addToCart(product) {
     cart.push(product);
   }
   saveCart();
+  document.getElementById("panier").scrollIntoView({behavior:"smooth"});
 }
 
 function updateCartUI() {
@@ -158,7 +145,7 @@ function updateCartUI() {
   cart.forEach(item => {
     total += item.price * item.qty;
     cartItems.innerHTML += `
-      <div class="border rounded-lg p-3">
+      <div class="bg-white border rounded-lg p-4">
         <div class="font-medium">${item.name}</div>
         <div class="text-sm text-slate-500">Quantité : ${item.qty}</div>
         <div class="font-semibold mt-1">${(item.price * item.qty).toFixed(2)} €</div>
@@ -167,10 +154,6 @@ function updateCartUI() {
   });
 
   cartTotal.textContent = total.toFixed(2) + " €";
-}
-
-function toggleCart() {
-  document.getElementById("cartModal").classList.toggle("hidden");
 }
 
 updateCartUI();
