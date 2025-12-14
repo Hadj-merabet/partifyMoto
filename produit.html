@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Panier</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    .hidden { display: none; }
+    .box { border: 1px solid #ccc; padding: 15px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>Produit</h1>
+
+<p>Carénage Acerbis – YZ125</p>
+<p><strong>99,90 €</strong></p>
+
+<button onclick="addToCart()">Ajouter au panier</button>
+<button onclick="showCart()">Voir le panier</button>
+
+<!-- PAGE PANIER -->
+<div id="cartPage" class="box hidden">
+  <h2>Mon panier</h2>
+  <div id="cartItems"></div>
+  <p><strong>Total : <span id="total">0</span> €</strong></p>
+</div>
+
+<script>
+let cart = [];
+
+function addToCart() {
+  cart.push({ name: "Carénage Acerbis – YZ125", price: 99.9 });
+  alert("Produit ajouté au panier");
+}
+
+function showCart() {
+  const cartPage = document.getElementById("cartPage");
+  const cartItems = document.getElementById("cartItems");
+  const totalSpan = document.getElementById("total");
+
+  cartPage.classList.remove("hidden");
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price;
+    cartItems.innerHTML += `<p>${item.name} - ${item.price} €</p>`;
+  });
+
+  totalSpan.textContent = total.toFixed(2);
+}
+</script>
+
+</body>
+</html>
 
