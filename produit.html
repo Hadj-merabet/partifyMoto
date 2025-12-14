@@ -1,1 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+<div class="max-w-3xl mx-auto px-6 py-20">
+  <h1 class="text-3xl font-semibold mb-8">Mon panier</h1>
+
+  <div id="cartItems" class="space-y-4"></div>
+
+  <div class="border-t mt-6 pt-6 flex justify-between text-xl font-semibold">
+    <span>Total</span>
+    <span id="cartTotal">0 €</span>
+  </div>
+
+  <div class="mt-6 flex gap-4">
+    <a href="index.html" class="px-4 py-2 border rounded-lg">
+      Continuer mes achats
+    </a>
+    <button class="px-6 py-2 bg-orange-600 text-white rounded-lg">
+      Passer au paiement
+    </button>
+  </div>
+</div>
+
+<script>
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const container = document.getElementById("cartItems");
+let total = 0;
+
+cart.forEach(item => {
+  total += item.price * item.qty;
+  container.innerHTML += `
+    <div class="bg-white p-4 border rounded-lg">
+      <div class="font-medium">${item.name}</div>
+      <div class="text-sm text-slate-500">Quantité : ${item.qty}</div>
+      <div class="font-semibold">${(item.price * item.qty).toFixed(2)} €</div>
+    </div>
+  `;
+});
+
+document.getElementById("cartTotal").textContent = total.toFixed(2) + " €";
+</script>
+
+</body>
+</html>
 
