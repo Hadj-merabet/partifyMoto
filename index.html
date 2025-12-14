@@ -1,121 +1,202 @@
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+@@ -40,19 +39,6 @@
+        ::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+        select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+    </style>
+<meta charset="utf-8">
+<title>Partify Moto – Catalogue</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Partify Moto</title>
 
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- Icons -->
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {500:'#f97316',600:'#ea580c'}
-      }
-    }
-  }
-}
-</script>
+<style>
+body{font-family:Inter,system-ui}
+.filter-btn.active{background:#ea580c;color:white}
+</style>
 </head>
+<body class="bg-white text-slate-600 font-sans antialiased selection:bg-brand-100 selection:text-brand-600">
 
-<body class="bg-white text-slate-700">
-
-<!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-white border-b z-50">
-  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <span class="font-semibold text-lg">PARTIFY MOTO</span>
-
-    <div class="flex items-center gap-6">
-      <!-- LIEN PAGE PANIER -->
-      <a href="panier.html" class="font-medium text-sm hover:text-brand-600 flex items-center gap-1">
-        <span class="iconify" data-icon="lucide:shopping-cart"></span>
-        Panier
-        <span id="cartCount"
-          class="ml-1 bg-brand-600 text-white text-xs px-1.5 rounded-full">0</span>
-      </a>
-    </div>
+@@ -73,7 +59,6 @@
+    <a href="#search" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-all shadow-sm hover:shadow-md hidden sm:block">Mon Espace</a>
   </div>
 </nav>
+<body class="bg-slate-50 text-slate-800">
 
-<!-- HERO -->
-<header class="pt-32 pb-20 text-center max-w-3xl mx-auto px-6">
-  <h1 class="text-4xl font-semibold text-slate-900">
-    Pièces moto au meilleur prix
-  </h1>
-  <p class="text-slate-500 mt-4">
-    Carénages d’origine et premium compatibles
-  </p>
-</header>
-
-<!-- PRODUITS -->
-<section class="max-w-5xl mx-auto px-6 pb-24 space-y-6">
-
-  <div class="border rounded-xl p-4 grid md:grid-cols-3 gap-4">
-    <img class="rounded-lg object-cover h-40 w-full"
-      src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-
-    <div class="md:col-span-2">
-      <h3 class="text-lg font-semibold text-slate-900">
-        Carénage Acerbis – Yamaha YZ125
-      </h3>
-
-      <p class="text-sm text-slate-500 mt-2">
-        Kit carénage premium, résistant et léger.
-      </p>
-
-      <div class="mt-4 flex items-center justify-between">
-        <span class="text-xl font-bold">99,90 €</span>
-
-        <div class="flex gap-2">
-          <select id="qty1" class="border rounded-lg px-3 py-2 text-sm">
-            <option>1</option><option>2</option><option>3</option>
-          </select>
-
-          <button onclick="addToCart({
-            id:'acerbis-yz125',
-            name:'Carénage Acerbis – YZ125',
-            price:99.9,
-            qty:parseInt(document.getElementById('qty1').value)
-          })"
-          class="bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-lg">
-            Ajouter au panier
-          </button>
-        </div>
+<header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+  <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-10"></div>
+@@ -142,10 +127,6 @@ <h1 class="font-display text-4xl lg:text-6xl font-semibold text-slate-900 tracki
       </div>
     </div>
   </div>
+<!-- HEADER -->
+<header class="bg-white shadow p-6 text-center">
+  <h1 class="text-3xl font-bold">PARTIFY MOTO</h1>
+  <p class="text-slate-500">Pièces moto – carénages, freinage, moteur</p>
+</header>
 
+<!-- RESULTS (hidden until search) -->
+@@ -212,16 +193,6 @@ <h3 class="font-medium text-slate-900">Accessoires</h3>
+    <div class="mt-12 text-center">
+      <button class="bg-slate-900 text-white hover:bg-slate-800 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg">Trouver mes pièces maintenant</button>
+    </div>
+<!-- SELECT -->
+<section class="max-w-4xl mx-auto p-6">
+  <div class="grid grid-cols-3 gap-3">
+    <select id="brand" class="p-3 border rounded">
+      <option value="">Marque</option>
+      <option>Yamaha</option>
+      <option>Honda</option>
+    </select>
+    <select id="model" class="p-3 border rounded"></select>
+    <select id="year" class="p-3 border rounded"></select>
+  </div>
 </section>
 
-<!-- SCRIPT PANIER -->
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+@@ -244,10 +215,6 @@ <h2 class="font-display text-3xl font-semibold text-center mb-16 tracking-tight"
+          </div>
+        </div>
+      </div>
+  <button id="search" class="mt-4 w-full bg-orange-600 text-white p-3 rounded">
+    Trouver mes pièces
+  </button>
+</section>
 
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-}
+      <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+        <div class="flex gap-1 text-brand-500 mb-4">
+@@ -263,13 +230,6 @@ <h2 class="font-display text-3xl font-semibold text-center mb-16 tracking-tight"
+        </div>
+      </div>
+    </div>
+<!-- FILTER -->
+<section class="max-w-6xl mx-auto px-6 hidden" id="filters">
+  <div class="flex gap-2 mb-4">
+    <button data-cat="all" class="filter-btn border px-3 py-1 rounded active">Tous</button>
+    <button data-cat="carenage" class="filter-btn border px-3 py-1 rounded">Carénages</button>
+    <button data-cat="freinage" class="filter-btn border px-3 py-1 rounded">Freinage</button>
+    <button data-cat="moteur" class="filter-btn border px-3 py-1 rounded">Moteur</button>
+  </div>
+</section>
 
-function addToCart(product) {
-  const existing = cart.find(p => p.id === product.id);
-  if (existing) {
-    existing.qty += product.qty;
-  } else {
-    cart.push(product);
-  }
-  saveCart();
-  alert("Produit ajouté au panier");
-}
+@@ -294,8 +254,6 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Navigation</h4>
+          <li><a href="#" class="hover:text-brand-600">Blog</a></li>
+        </ul>
+      </div>
+<!-- RESULTS -->
+<section id="results" class="max-w-6xl mx-auto px-6 grid gap-6"></section>
 
-function updateCartCount() {
-  document.getElementById("cartCount").textContent =
-    cart.reduce((a,b) => a + b.qty, 0);
-}
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4 text-sm">Légal</h4>
+@@ -463,12 +421,7 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+  "Honda": { models: { "CRF50": { years, products: {} }, "CRF125": { years, products: {} } }},
+  "Kawasaki": { models: { "KX65": { years, products: {} }, "KX250": { years, products: {} } }},
+  "BMW": { models: { "GS 1250": { years, products: {} }, "R 1250": { years, products: {} } }}
+/* DATA */
+const models = {
+  Yamaha:["PW50","YZ85","YZ125","YZ250","YZ450F"],
+  Honda:["CRF50","CRF125"]
+};
+const years=[...Array(10)].map((_,i)=>2025-i);
 
-updateCartCount();
+// Build image arrays (1 real + 3 placeholders) for each product
+Object.keys(catalog).forEach(brand => {
+@@ -646,27 +599,9 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+  const price = document.createElement('div');
+  price.className = "text-xl font-bold text-slate-900";
+  price.textContent = formatPrice(product.price);
+const img = {
+ carenage:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+ brake:"https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&w=800&q=80",
+ piston:"https://images.unsplash.com/photo-1604147706283-d7119b5b822c?auto=format&fit=crop&w=800&q=80"
+};
+
+  const controls = document.createElement('div');
+  controls.className = "flex items-center gap-3";
+/* INIT */
+const brand=document.getElementById("brand");
+const model=document.getElementById("model");
+const year=document.getElementById("year");
+const results=document.getElementById("results");
+const filters=document.getElementById("filters");
+
+brand.onchange=()=>{
+ model.innerHTML="<option>Modèle</option>";
+ models[brand.value]?.forEach(m=>model.innerHTML+=`<option>${m}</option>`);
+ year.innerHTML="<option>Année</option>";
+ years.forEach(y=>year.innerHTML+=`<option>${y}</option>`);
+};
+
+  const qtyWrap = document.createElement('div');
+  qtyWrap.className = "flex items-center gap-2";
+@@ -677,51 +612,13 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+  qtySelect.className = "px-3 py-2 border border-slate-200 rounded-lg text-sm";
+  for (let i=1;i<=10;i++){ const o=document.createElement('option'); o.value=i; o.textContent=i; qtySelect.appendChild(o); }
+  qtyWrap.appendChild(qtyLabel); qtyWrap.appendChild(qtySelect);
+document.getElementById("search").onclick=()=>{
+ results.innerHTML="";
+ filters.classList.remove("hidden");
+
+ const items=[
+  {cat:"carenage",title:"Carénage origine",price:219,img:img.carenage},
+  {cat:"carenage",title:"Carénage premium",price:109,img:img.carenage},
+  {cat:"freinage",title:"Plaquettes origine",price:34,img:img.brake},
+  {cat:"freinage",title:"Plaquettes premium",price:44,img:img.brake},
+  {cat:"moteur",title:"Piston moteur",price:89,img:img.piston},
+  {cat:"moteur",title:"Cylindre moteur",price:219,img:img.piston}
+ ];
+
+ items.forEach(p=>{
+  results.innerHTML+=`
+  <div class="product bg-white p-4 rounded shadow" data-cat="${p.cat}">
+    <div class="relative">
+      <img src="${p.img}" class="w-full h-48 object-cover rounded">
+    </div>
+    <h3 class="mt-2 font-semibold">${p.title}</h3>
+    <p class="text-orange-600 font-bold">${p.price} €</p>
+    <select class="mt-2 border p-2 w-full">
+      ${[1,2,3,4,5].map(n=>`<option>${n}</option>`).join("")}
+    </select>
+    <button class="mt-2 w-full bg-orange-600 text-white p-2 rounded">
+      Commander
+    </button>
+  </div>`;
+ });
+};
+
+  const btn = document.createElement('button');
+  btn.className = "bg-brand-600 hover:bg-brand-500 text-white font-medium px-4 py-2 rounded-lg transition-colors";
+  btn.textContent = "Passer commande";
+  btn.addEventListener('click', () => {
+    btn.disabled = true; btn.textContent = "Ajouté ✓";
+    setTimeout(()=>{ btn.disabled = false; btn.textContent = "Passer commande"; }, 900);
+/* FILTER */
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+ btn.onclick=()=>{
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  const c=btn.dataset.cat;
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display=(c==="all"||p.dataset.cat===c)?"block":"none";
+  });
+
+  controls.appendChild(qtyWrap);
+@@ -775,13 +672,11 @@ <h3 class="mt-2 font-semibold">${p.title}</h3>
+
+  resultsSection.classList.remove('hidden');
+  setTimeout(()=>{ resultsSection.scrollIntoView({behavior:'smooth', block:'start'}); }, 120);
+ };
+});
+
+/* Optional: set default brand to Yamaha for demo
+brandSelect.value = 'Yamaha'; populateModels('Yamaha');
+*/
 </script>
 
 </body>
