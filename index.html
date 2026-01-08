@@ -84,7 +84,7 @@
             <!-- Links & Cart -->
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                    <a href="javascript:void(0)" onclick="navigateTo('home')" class="text-slate-500 hover:text-slate-900 transition-colors">Accueil</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-slate-900 transition-colors text-slate-500">Accueil</a>
                     <a href="javascript:void(0)" onclick="navigateTo('catalog')" class="text-slate-500 hover:text-brand-600 transition-colors">Catalogue</a>
                 </div>
 
@@ -107,7 +107,7 @@
         <header class="lg:pt-24 lg:pb-32 overflow-hidden pt-12 pb-20 relative">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-10"></div>
 
-            <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="grid lg:grid-cols-2 lg:gap-20 max-w-7xl mr-auto ml-auto pr-6 pl-6 gap-x-12 gap-y-12 items-center">
                 <div class="max-w-2xl z-10">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-medium text-slate-600 mb-6">
                         <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
@@ -125,7 +125,7 @@
                         <div class="grid grid-cols-3 gap-2 mb-2">
                             <!-- Brand -->
                             <div class="relative col-span-3 sm:col-span-1">
-                                <select class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm font-medium rounded-lg focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 block p-3 pr-8 outline-none cursor-pointer transition-all">
+                                <select class="focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 block outline-none cursor-pointer transition-all text-sm font-medium text-slate-900 bg-slate-50 w-full border-slate-200 border rounded-lg pt-3 pr-8 pb-3 pl-3">
                                     <option>Marque...</option>
                                     <option>Yamaha</option>
                                     <option>KTM</option>
@@ -189,9 +189,9 @@
                     </div>
                     <div class="space-y-4">
                         <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100 aspect-[3/4] relative group">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+                            <div class="bg-gradient-to-t from-black/40 to-transparent z-10 absolute top-0 right-0 bottom-0 left-0"></div>
                             <!-- Vraie photo Adventure Bike (Ténéré/Africa Twin style) -->
-                            <img src="https://images.unsplash.com/photo-1571188235336-b700d11e5926?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Adventure Bike" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" style="">
+                            <img src="https://lonerider.com/cdn/shop/articles/Yamaha-Tenere-700-Extreme-Edition_1000x.jpg?w=800&amp;q=80" alt="Adventure Bike" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" style="outline: rgb(245, 158, 11) solid 2px; outline-offset: 2px; transition: outline 0.1s ease-in-out;">
                             <div class="absolute bottom-4 left-4 z-20">
                                 <span class="text-white font-display font-bold text-lg drop-shadow-md">Adventure</span>
                             </div>
@@ -202,9 +202,9 @@
         </header>
 
         <!-- Collections -->
-        <section class="py-16 bg-slate-50 border-y border-slate-200">
+        <section class="border-y bg-slate-50 border-slate-200 pt-16 pb-16">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="flex justify-between items-end mb-8">
+                <div class="flex mb-8 items-end justify-between">
                     <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight">Univers Pilote</h2>
                     <button onclick="navigateTo('catalog')" class="text-brand-600 text-sm font-medium hover:text-brand-700 flex items-center gap-1 transition-colors">
                         Tout voir <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:arrow-right" data-stroke-width="1.5" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"></path></svg>
@@ -213,7 +213,7 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <!-- Card 1: Carénage -->
                     <div onclick="navigateTo('catalog')" class="group cursor-pointer relative rounded-xl overflow-hidden h-64 shadow-sm border border-slate-200">
-                        <img src="https://images.unsplash.com/photo-1589139665578-838d7286a512?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Carénage" style="">
+                        <img src="https://kitdeco-moto.fr/wp-content/uploads/2024/03/kit-deco-yamaha-85-yz-2022-2024-monster-scaled.webp?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Carénage" style="">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-4 w-full">
                             <h3 class="font-display font-semibold text-white text-lg mb-0.5">Carénages</h3>
@@ -231,7 +231,7 @@
                     </div>
                     <!-- Card 3: Partie Cycle -->
                     <div onclick="navigateTo('catalog')" class="group cursor-pointer relative rounded-xl overflow-hidden h-64 shadow-sm border border-slate-200">
-                        <img src="https://images.unsplash.com/photo-1635073908681-42cb413c2331?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pneus">
+                        <img src="https://www.wdracing.eu/58816-large_default/oem-cylindre-fantic-xx-125-21-xe-125-21-22-yamaha-yz-125-05-21.webp?w=800&amp;q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pneus">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-4 w-full">
                             <h3 class="font-display font-semibold text-white text-lg mb-0.5">Cycle</h3>
@@ -560,7 +560,7 @@
                         <li><a href="#" class="hover:text-brand-600">Mentions Légales</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="">
                     <h4 class="font-semibold text-slate-900 mb-4 text-xs uppercase tracking-wider">Contact</h4>
                     <p class="text-sm text-slate-500 mb-2">support@partify.com</p>
                 </div>
