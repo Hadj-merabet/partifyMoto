@@ -52,8 +52,14 @@
         .toast { animation: slideIn 0.3s ease-out forwards; }
         @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
-</head>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
 <body class="bg-white text-slate-600 font-sans antialiased selection:bg-brand-100 selection:text-brand-600 flex flex-col min-h-screen relative">
+
+
+
+
+
+
 
     <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-4 right-4 z-[60] flex flex-col gap-2 pointer-events-none"></div>
@@ -64,7 +70,7 @@
             <!-- Logo -->
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center gap-2 group cursor-pointer flex-shrink-0">
                 <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white group-hover:bg-brand-600 transition-colors duration-300">
-                    <span class="iconify" data-icon="lucide:zap" data-stroke-width="1.5"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:zap" data-stroke-width="1.5" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
                 </div>
                 <span class="font-display font-bold text-lg tracking-tight text-slate-900 uppercase hidden sm:block">Partify</span>
             </a>
@@ -72,7 +78,7 @@
             <!-- Global Search Bar -->
             <div class="hidden md:flex flex-grow max-w-md relative">
                 <input type="text" placeholder="Rechercher une pièce, référence, carénage..." class="w-full bg-slate-100 border border-slate-200 text-slate-900 text-sm rounded-lg focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 block pl-10 p-2.5 outline-none transition-all placeholder:text-slate-400">
-                <span class="iconify absolute left-3 top-3 text-slate-400" data-icon="lucide:search" data-stroke-width="1.5"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:search" data-stroke-width="1.5" class="iconify absolute left-3 top-3 text-slate-400 iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m21 21l-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></g></svg>
             </div>
 
             <!-- Links & Cart -->
@@ -84,7 +90,7 @@
 
                 <div class="flex items-center gap-4">
                     <button onclick="navigateTo('cart')" class="p-2 text-slate-500 hover:text-slate-900 relative group transition-colors">
-                        <span class="iconify w-5 h-5" data-icon="lucide:shopping-bag" data-stroke-width="1.5"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:shopping-bag" data-stroke-width="1.5" class="iconify w-5 h-5 iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 10a4 4 0 0 1-8 0M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></g></svg>
                         <span id="cart-count" class="absolute top-0 right-0 w-4 h-4 bg-brand-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">0</span>
                     </button>
                     <a href="#" class="text-xs font-semibold bg-slate-900 text-white px-4 py-2.5 rounded-lg hover:bg-slate-800 transition-all shadow-sm hidden sm:block tracking-wide">
@@ -98,7 +104,7 @@
     <!-- PAGE: HOME -->
     <main id="page-home" class="fade-in pt-16 flex-grow block">
         <!-- Hero Section -->
-        <header class="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
+        <header class="lg:pt-24 lg:pb-32 overflow-hidden pt-12 pb-20 relative">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-10"></div>
 
             <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -131,7 +137,7 @@
                                     <option>Beta</option>
                                     <option>Sherco</option>
                                 </select>
-                                <span class="iconify absolute right-2 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:chevron-down" class="iconify absolute right-2 top-3.5 text-slate-400 pointer-events-none iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"></path></svg>
                             </div>
                             <!-- Model -->
                             <div class="relative col-span-3 sm:col-span-1">
@@ -145,7 +151,7 @@
                                     <option>KXF 250</option>
                                     <option>RMZ 450</option>
                                 </select>
-                                <span class="iconify absolute right-2 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:chevron-down" class="iconify absolute right-2 top-3.5 text-slate-400 pointer-events-none iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"></path></svg>
                             </div>
                             <!-- Year -->
                             <div class="relative col-span-3 sm:col-span-1">
@@ -159,11 +165,11 @@
                                     <option>2019</option>
                                     <option>2018</option>
                                 </select>
-                                <span class="iconify absolute right-2 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down"></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:chevron-down" class="iconify absolute right-2 top-3.5 text-slate-400 pointer-events-none iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"></path></svg>
                             </div>
                         </div>
                         <button onclick="navigateTo('catalog')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3.5 px-6 rounded-lg transition-all flex items-center justify-center gap-2 group text-sm">
-                            <span class="iconify" data-icon="lucide:search" data-stroke-width="1.5"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:search" data-stroke-width="1.5" class="iconify iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m21 21l-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></g></svg>
                             Rechercher mes pièces
                         </button>
                     </div>
@@ -175,7 +181,7 @@
                         <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100 aspect-[3/4] relative group">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
                             <!-- Vraie photo Motocross -->
-                            <img src="https://images.unsplash.com/photo-1517062463283-128a1563725b?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Motocross Action" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://azwecdnepstoragewebsiteuploads.azureedge.net/PHO_BIKE_90_RE_KTM-motocross-250-sxf-factory-edition-right-side-view_%23SALL_%23AEPI_%23V1.png?w=800&amp;q=80" alt="Motocross Action" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute bottom-4 left-4 z-20">
                                 <span class="text-white font-display font-bold text-lg drop-shadow-md">Motocross</span>
                             </div>
@@ -185,7 +191,7 @@
                         <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-100 aspect-[3/4] relative group">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
                             <!-- Vraie photo Adventure Bike (Ténéré/Africa Twin style) -->
-                            <img src="https://images.unsplash.com/photo-1571188235336-b700d11e5926?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Adventure Bike" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://images.unsplash.com/photo-1571188235336-b700d11e5926?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Adventure Bike" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" style="">
                             <div class="absolute bottom-4 left-4 z-20">
                                 <span class="text-white font-display font-bold text-lg drop-shadow-md">Adventure</span>
                             </div>
@@ -201,13 +207,13 @@
                 <div class="flex justify-between items-end mb-8">
                     <h2 class="font-display text-2xl font-bold text-slate-900 tracking-tight">Univers Pilote</h2>
                     <button onclick="navigateTo('catalog')" class="text-brand-600 text-sm font-medium hover:text-brand-700 flex items-center gap-1 transition-colors">
-                        Tout voir <span class="iconify" data-icon="lucide:arrow-right" data-stroke-width="1.5"></span>
+                        Tout voir <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:arrow-right" data-stroke-width="1.5" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7"></path></svg>
                     </button>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <!-- Card 1: Carénage -->
                     <div onclick="navigateTo('catalog')" class="group cursor-pointer relative rounded-xl overflow-hidden h-64 shadow-sm border border-slate-200">
-                        <img src="https://images.unsplash.com/photo-1589139665578-838d7286a512?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Carénage">
+                        <img src="https://images.unsplash.com/photo-1589139665578-838d7286a512?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Carénage" style="">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-4 w-full">
                             <h3 class="font-display font-semibold text-white text-lg mb-0.5">Carénages</h3>
@@ -253,7 +259,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex items-center gap-2 text-xs font-medium text-slate-400 mb-4">
                     <span onclick="navigateTo('home')" class="cursor-pointer hover:text-slate-900 transition-colors">Accueil</span>
-                    <span class="iconify" data-icon="lucide:chevron-right" data-stroke-width="1.5"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:chevron-right" data-stroke-width="1.5" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18l6-6l-6-6"></path></svg>
                     <span class="text-slate-900">Catalogue Pièces</span>
                 </div>
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -282,10 +288,10 @@
                         <h3 class="font-display font-semibold text-slate-900 mb-4 text-sm uppercase tracking-wide">Mon Véhicule</h3>
                         <div class="bg-slate-50 rounded-lg border border-slate-200 p-3 flex justify-between items-center mb-2">
                             <span class="text-sm font-medium text-slate-700">Yamaha Ténéré 700</span>
-                            <span class="iconify text-slate-400 cursor-pointer hover:text-red-500" data-icon="lucide:x-circle"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:x-circle" class="iconify text-slate-400 cursor-pointer hover:text-red-500 iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m15 9l-6 6m0-6l6 6"></path></g></svg>
                         </div>
                         <button class="text-xs text-brand-600 font-medium hover:underline flex items-center gap-1">
-                            <span class="iconify" data-icon="lucide:plus-circle"></span> Ajouter une moto
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:plus-circle" class="iconify iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8m-4-4v8"></path></g></svg> Ajouter une moto
                         </button>
                     </div>
 
@@ -341,7 +347,7 @@
                                 <div class="mt-auto flex items-center justify-between">
                                     <span class="font-display font-bold text-lg text-slate-900">189,90 €</span>
                                     <button onclick="addToCart(101, 'Kit Plastiques OEM', 189.90, 'https://images.unsplash.com/photo-1598209279122-8541213a0383?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80')" class="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center hover:bg-brand-600 transition-colors">
-                                        <span class="iconify" data-icon="lucide:plus"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:plus" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -365,7 +371,7 @@
                                         <span class="font-display font-bold text-xl text-brand-600">69,90 €</span>
                                     </div>
                                     <button onclick="addToCart(102, 'Kit Plastiques Adaptable', 69.90, 'https://images.unsplash.com/photo-1598209279122-8541213a0383?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80')" class="w-9 h-9 rounded-lg bg-brand-600 text-white flex items-center justify-center hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/30">
-                                        <span class="iconify" data-icon="lucide:shopping-cart"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:shopping-cart" class="iconify iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></g></svg>
                                     </button>
                                 </div>
                             </div>
@@ -383,7 +389,7 @@
                                 <div class="mt-auto flex items-center justify-between">
                                     <span class="font-display font-bold text-lg text-slate-900">129,90 €</span>
                                     <button onclick="addToCart(103, 'Kit Déco Racing', 129.90, 'https://images.unsplash.com/photo-1626847037657-fd3622613ce3?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80')" class="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center hover:bg-brand-600 transition-colors">
-                                        <span class="iconify" data-icon="lucide:plus"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:plus" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -404,7 +410,7 @@
                                 <div class="mt-auto flex items-center justify-between">
                                     <span class="font-display font-bold text-lg text-slate-900">45,50 €</span>
                                     <button onclick="addToCart(104, 'Levier Brembo OEM', 45.50, 'https://images.unsplash.com/photo-1596516314352-031f822183e2?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80')" class="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center hover:bg-brand-600 transition-colors">
-                                        <span class="iconify" data-icon="lucide:plus"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:plus" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -427,7 +433,7 @@
                                         <span class="font-display font-bold text-xl text-brand-600">10,90 €</span>
                                     </div>
                                     <button onclick="addToCart(105, 'Levier Compatible', 10.90, 'https://images.unsplash.com/photo-1596516314352-031f822183e2?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80')" class="w-9 h-9 rounded-lg bg-brand-600 text-white flex items-center justify-center hover:bg-brand-700 transition-colors shadow-lg shadow-brand-500/30">
-                                        <span class="iconify" data-icon="lucide:shopping-cart"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:shopping-cart" class="iconify iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></g></svg>
                                     </button>
                                 </div>
                             </div>
@@ -437,7 +443,7 @@
                          <div class="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all duration-300 flex flex-col">
                             <div class="relative aspect-square overflow-hidden bg-slate-50 p-6 flex items-center justify-center">
                                 <div class="w-full h-full flex items-center justify-center bg-slate-100 rounded text-slate-300">
-                                   <span class="iconify w-16 h-16" data-icon="lucide:shield"></span>
+                                   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:shield" class="iconify w-16 h-16 iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
                                 </div>
                             </div>
                             <div class="p-5 flex-1 flex flex-col">
@@ -447,7 +453,7 @@
                                 <div class="mt-auto flex items-center justify-between">
                                     <span class="font-display font-bold text-lg text-slate-900">220,00 €</span>
                                     <button onclick="addToCart(106, 'Crash Bars SW-Motech', 220.00, '')" class="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center hover:bg-brand-600 transition-colors">
-                                        <span class="iconify" data-icon="lucide:plus"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:plus" class="iconify iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7v14"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -463,13 +469,13 @@
     <main id="page-cart" class="hidden pt-16 flex-grow bg-slate-50/50">
         <div class="max-w-4xl mx-auto px-6 py-12">
             <h1 class="font-display text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                <span class="iconify" data-icon="lucide:shopping-cart"></span> 
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:shopping-cart" class="iconify iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></g></svg> 
                 Mon Panier
             </h1>
 
             <div id="cart-empty-state" class="hidden text-center py-20 bg-white rounded-2xl border border-slate-200 shadow-sm">
                 <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
-                    <span class="iconify w-8 h-8" data-icon="lucide:shopping-bag"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:shopping-bag" class="iconify w-8 h-8 iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 10a4 4 0 0 1-8 0M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></g></svg>
                 </div>
                 <h3 class="text-lg font-medium text-slate-900 mb-2">Votre panier est vide</h3>
                 <p class="text-slate-500 mb-6">Profitez de nos offres sur les carénages adaptables.</p>
@@ -510,13 +516,13 @@
                         </div>
 
                         <button onclick="checkout()" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-semibold py-4 rounded-lg transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2">
-                            Payer ma commande <span class="iconify" data-icon="lucide:lock" data-stroke-width="1.5"></span>
+                            Payer ma commande <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:lock" data-stroke-width="1.5" class="iconify iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></g></svg>
                         </button>
                         
                         <div class="mt-4 flex justify-center gap-2 text-slate-300">
-                             <span class="iconify w-6 h-6" data-icon="lucide:credit-card"></span>
-                             <span class="iconify w-6 h-6" data-icon="logos:visa"></span>
-                             <span class="iconify w-6 h-6" data-icon="logos:mastercard"></span>
+                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:credit-card" class="iconify w-6 h-6 iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"></rect><path d="M2 10h20"></path></g></svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="3.09em" height="1em" viewBox="0 0 256 83" data-icon="logos:visa" class="iconify w-6 h-6 iconify--logos"><defs><linearGradient id="IconifyId19b9db72838584c0c0" x1="45.974%" x2="54.877%" y1="-2.006%" y2="100%"><stop offset="0%" stop-color="#222357"></stop><stop offset="100%" stop-color="#254AA5"></stop></linearGradient></defs><path fill="url(#IconifyId19b9db72838584c0c0)" d="M132.397 56.24c-.146-11.516 10.263-17.942 18.104-21.763c8.056-3.92 10.762-6.434 10.73-9.94c-.06-5.365-6.426-7.733-12.383-7.825c-10.393-.161-16.436 2.806-21.24 5.05l-3.744-17.519c4.82-2.221 13.745-4.158 23-4.243c21.725 0 35.938 10.724 36.015 27.351c.085 21.102-29.188 22.27-28.988 31.702c.069 2.86 2.798 5.912 8.778 6.688c2.96.392 11.131.692 20.395-3.574l3.636 16.95c-4.982 1.814-11.385 3.551-19.357 3.551c-20.448 0-34.83-10.87-34.946-26.428m89.241 24.968c-3.967 0-7.31-2.314-8.802-5.865L181.803 1.245h21.709l4.32 11.939h26.528l2.506-11.939H256l-16.697 79.963zm3.037-21.601l6.265-30.027h-17.158zm-118.599 21.6L88.964 1.246h20.687l17.104 79.963zm-30.603 0L53.941 26.782l-8.71 46.277c-1.022 5.166-5.058 8.149-9.54 8.149H.493L0 78.886c7.226-1.568 15.436-4.097 20.41-6.803c3.044-1.653 3.912-3.098 4.912-7.026L41.819 1.245H63.68l33.516 79.963z" transform="matrix(1 0 0 -1 0 82.668)"></path></svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1.29em" height="1em" viewBox="0 0 256 199" data-icon="logos:mastercard" class="iconify w-6 h-6 iconify--logos"><path d="M46.54 198.011V184.84c0-5.05-3.074-8.342-8.343-8.342c-2.634 0-5.488.878-7.464 3.732c-1.536-2.415-3.731-3.732-7.024-3.732c-2.196 0-4.39.658-6.147 3.073v-2.634h-4.61v21.074h4.61v-11.635c0-3.731 1.976-5.488 5.05-5.488c3.072 0 4.61 1.976 4.61 5.488v11.635h4.61v-11.635c0-3.731 2.194-5.488 5.048-5.488c3.074 0 4.61 1.976 4.61 5.488v11.635zm68.271-21.074h-7.463v-6.366h-4.61v6.366h-4.171v4.17h4.17v9.66c0 4.83 1.976 7.683 7.245 7.683c1.976 0 4.17-.658 5.708-1.536l-1.318-3.952c-1.317.878-2.853 1.098-3.951 1.098c-2.195 0-3.073-1.317-3.073-3.513v-9.44h7.463zm39.076-.44c-2.634 0-4.39 1.318-5.488 3.074v-2.634h-4.61v21.074h4.61v-11.854c0-3.512 1.536-5.488 4.39-5.488c.878 0 1.976.22 2.854.439l1.317-4.39c-.878-.22-2.195-.22-3.073-.22m-59.052 2.196c-2.196-1.537-5.269-2.195-8.562-2.195c-5.268 0-8.78 2.634-8.78 6.805c0 3.513 2.634 5.488 7.244 6.147l2.195.22c2.415.438 3.732 1.097 3.732 2.195c0 1.536-1.756 2.634-4.83 2.634s-5.488-1.098-7.025-2.195l-2.195 3.512c2.415 1.756 5.708 2.634 9 2.634c6.147 0 9.66-2.853 9.66-6.805c0-3.732-2.854-5.708-7.245-6.366l-2.195-.22c-1.976-.22-3.512-.658-3.512-1.975c0-1.537 1.536-2.415 3.951-2.415c2.635 0 5.269 1.097 6.586 1.756zm122.495-2.195c-2.635 0-4.391 1.317-5.489 3.073v-2.634h-4.61v21.074h4.61v-11.854c0-3.512 1.537-5.488 4.39-5.488c.879 0 1.977.22 2.855.439l1.317-4.39c-.878-.22-2.195-.22-3.073-.22m-58.833 10.976c0 6.366 4.39 10.976 11.196 10.976c3.073 0 5.268-.658 7.463-2.414l-2.195-3.732c-1.756 1.317-3.512 1.975-5.488 1.975c-3.732 0-6.366-2.634-6.366-6.805c0-3.951 2.634-6.586 6.366-6.805c1.976 0 3.732.658 5.488 1.976l2.195-3.732c-2.195-1.757-4.39-2.415-7.463-2.415c-6.806 0-11.196 4.61-11.196 10.976m42.588 0v-10.537h-4.61v2.634c-1.537-1.975-3.732-3.073-6.586-3.073c-5.927 0-10.537 4.61-10.537 10.976s4.61 10.976 10.537 10.976c3.073 0 5.269-1.097 6.586-3.073v2.634h4.61zm-16.904 0c0-3.732 2.415-6.805 6.366-6.805c3.732 0 6.367 2.854 6.367 6.805c0 3.732-2.635 6.805-6.367 6.805c-3.951-.22-6.366-3.073-6.366-6.805m-55.1-10.976c-6.147 0-10.538 4.39-10.538 10.976s4.39 10.976 10.757 10.976c3.073 0 6.147-.878 8.562-2.853l-2.196-3.293c-1.756 1.317-3.951 2.195-6.146 2.195c-2.854 0-5.708-1.317-6.367-5.05h15.587v-1.755c.22-6.806-3.732-11.196-9.66-11.196m0 3.951c2.853 0 4.83 1.757 5.268 5.05h-10.976c.439-2.854 2.415-5.05 5.708-5.05m114.372 7.025v-18.879h-4.61v10.976c-1.537-1.975-3.732-3.073-6.586-3.073c-5.927 0-10.537 4.61-10.537 10.976s4.61 10.976 10.537 10.976c3.074 0 5.269-1.097 6.586-3.073v2.634h4.61zm-16.903 0c0-3.732 2.414-6.805 6.366-6.805c3.732 0 6.366 2.854 6.366 6.805c0 3.732-2.634 6.805-6.366 6.805c-3.952-.22-6.366-3.073-6.366-6.805m-154.107 0v-10.537h-4.61v2.634c-1.537-1.975-3.732-3.073-6.586-3.073c-5.927 0-10.537 4.61-10.537 10.976s4.61 10.976 10.537 10.976c3.074 0 5.269-1.097 6.586-3.073v2.634h4.61zm-17.123 0c0-3.732 2.415-6.805 6.366-6.805c3.732 0 6.367 2.854 6.367 6.805c0 3.732-2.635 6.805-6.367 6.805c-3.951-.22-6.366-3.073-6.366-6.805"></path><path fill="#FF5F00" d="M93.298 16.903h69.15v124.251h-69.15z"></path><path fill="#EB001B" d="M97.689 79.029c0-25.245 11.854-47.637 30.074-62.126C114.373 6.366 97.47 0 79.03 0C35.343 0 0 35.343 0 79.029s35.343 79.029 79.029 79.029c18.44 0 35.343-6.366 48.734-16.904c-18.22-14.269-30.074-36.88-30.074-62.125"></path><path fill="#F79E1B" d="M255.746 79.029c0 43.685-35.343 79.029-79.029 79.029c-18.44 0-35.343-6.366-48.734-16.904c18.44-14.488 30.075-36.88 30.075-62.125s-11.855-47.637-30.075-62.126C141.373 6.366 158.277 0 176.717 0c43.686 0 79.03 35.563 79.03 79.029"></path></svg>
                         </div>
                     </div>
                 </div>
@@ -531,7 +537,7 @@
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
                         <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white">
-                            <span class="iconify text-xs" data-icon="lucide:zap" data-stroke-width="2"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:zap" data-stroke-width="2" class="iconify text-xs iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
                         </div>
                         <span class="font-display font-bold text-slate-900 tracking-tight uppercase">Partify</span>
                     </div>
@@ -562,8 +568,8 @@
             <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
                 <p>© 2024 Partify Moto.</p>
                 <div class="flex gap-4 mt-2 md:mt-0">
-                    <span class="iconify hover:text-slate-900 cursor-pointer" data-icon="lucide:instagram"></span>
-                    <span class="iconify hover:text-slate-900 cursor-pointer" data-icon="lucide:facebook"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:instagram" class="iconify hover:text-slate-900 cursor-pointer iconify--lucide"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01"></path></g></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="lucide:facebook" class="iconify hover:text-slate-900 cursor-pointer iconify--lucide"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                 </div>
             </div>
         </div>
