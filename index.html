@@ -1,174 +1,1236 @@
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
-<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-@@ -40,19 +39,6 @@
+    <title>Partify Moto – Pièces moto au meilleur prix</title>
+    
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+@@ -20,643 +20,663 @@
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        sans: ['Inter','sans-serif'],
+                        display: ['Space Grotesk','sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            900: '#7c2d12',
+                        },
+                        slate: {
+                            850: '#1e293b',
+                        }
+                        brand: {50:'#fff7ed',100:'#ffedd5',500:'#f97316',600:'#ea580c',900:'#7c2d12'},
+                        slate: {850:'#1e293b'}
+                    }
+                }
+            }
+        }
+        };
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:transparent}
+        ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
         ::-webkit-scrollbar-thumb:hover{background:#94a3b8}
         select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
     </style>
-<meta charset="utf-8">
-<title>Partify Moto – Catalogue</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Icons -->
-<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-
-<style>
-body{font-family:Inter,system-ui}
-.filter-btn.active{background:#ea580c;color:white}
-</style>
 </head>
 <body class="bg-white text-slate-600 font-sans antialiased selection:bg-brand-100 selection:text-brand-600">
 
-@@ -73,7 +59,6 @@
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white group-hover:bg-brand-600 transition-colors duration-300">
+                    <span class="iconify" data-icon="lucide:zap" data-stroke-width="1.5"></span>
+                </div>
+                <span class="font-display font-semibold text-lg tracking-tight text-slate-900">PARTIFY MOTO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#comment-ca-marche" class="hover:text-slate-900 transition-colors">Comment ça marche</a>
+                <a href="#avantages" class="hover:text-slate-900 transition-colors">Avantages</a>
+                <a href="#categories" class="hover:text-slate-900 transition-colors">Pièces</a>
+            </div>
+
+            <a href="#search" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-all shadow-sm hover:shadow-md hidden sm:block">
+                Mon Espace
+            </a>
+<!-- NAV / HERO (kept from your previous version) -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group">
+      <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white group-hover:bg-brand-600 transition-colors duration-300">
+        <span class="iconify" data-icon="lucide:zap" data-stroke-width="1.5"></span>
+      </div>
+      <span class="font-display font-semibold text-lg tracking-tight text-slate-900">PARTIFY MOTO</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#comment-ca-marche" class="hover:text-slate-900 transition-colors">Comment ça marche</a>
+      <a href="#avantages" class="hover:text-slate-900 transition-colors">Avantages</a>
+      <a href="#categories" class="hover:text-slate-900 transition-colors">Pièces</a>
+    </div>
     <a href="#search" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-all shadow-sm hover:shadow-md hidden sm:block">Mon Espace</a>
   </div>
 </nav>
-<body class="bg-slate-50 text-slate-800">
 
 <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
   <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-10"></div>
-@@ -142,10 +127,6 @@ <h1 class="font-display text-4xl lg:text-6xl font-semibold text-slate-900 tracki
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 mb-6">
+        <span class="flex h-2 w-2 rounded-full bg-green-500"></span> Nouveau : Comparateur de prix en temps réel
+      </div>
+      <h1 class="font-display text-4xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1] mb-6">
+        Trouve les pièces de ta moto au <span class="text-brand-600">meilleur prix</span>.
+      </h1>
+      <p class="text-lg text-slate-500 leading-relaxed mb-10 max-w-lg">
+        Choisis la marque, le modèle et l’année de ta moto et découvre instantanément les carénages d'origine et adaptables (Acerbis premium).
+      </p>
+
+      <!-- SEARCH WIDGET -->
+      <div id="search" class="bg-white p-4 rounded-xl border border-slate-200 shadow-xl shadow-slate-200/40 max-w-lg">
+        <div class="grid grid-cols-3 gap-2 mb-3">
+          <div class="relative">
+            <select id="brandSelect" class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-lg p-3 pr-8 outline-none cursor-pointer">
+              <option value="">Marque</option>
+              <option>Yamaha</option>
+              <option>Honda</option>
+              <option>Kawasaki</option>
+              <option>BMW</option>
+            </select>
+            <span class="iconify absolute right-3 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down"></span>
+          </div>
+          <div class="relative">
+            <select id="modelSelect" class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-lg p-3 pr-8 outline-none cursor-pointer">
+              <option value="">Modèle</option>
+            </select>
+            <span class="iconify absolute right-3 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down"></span>
+          </div>
+          <div class="relative">
+            <select id="yearSelect" class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-lg p-3 pr-8 outline-none cursor-pointer">
+              <option value="">Année</option>
+            </select>
+            <span class="iconify absolute right-3 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down"></span>
+          </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-brand-50 rounded-full blur-3xl opacity-50 -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 mb-6">
+                    <span class="flex h-2 w-2 rounded-full bg-green-500"></span>
+                    Nouveau : Comparateur de prix en temps réel
+                </div>
+                
+                <h1 class="font-display text-4xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1] mb-6">
+                    Trouve les pièces de ta moto au <span class="text-brand-600">meilleur prix</span>.
+                </h1>
+                
+                <p class="text-lg text-slate-500 leading-relaxed mb-10 max-w-lg">
+                    Choisis la marque, le modèle et l’année de ta moto et découvre instantanément les carénages d'origine et adaptables (Acerbis premium).
+                </p>
+
+                <!-- Embedded Search Widget -->
+                <div id="search" class="bg-white p-4 rounded-xl border border-slate-200 shadow-xl shadow-slate-200/40 max-w-lg">
+                    <div class="grid grid-cols-3 gap-2 mb-3">
+                        <div class="relative">
+                            <select id="brandSelect" aria-label="Marque" class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-lg focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 block p-3 pr-8 outline-none transition-all cursor-pointer hover:bg-slate-100">
+                                <option value="">Marque</option>
+                                <option>Yamaha</option>
+                                <option>Honda</option>
+                                <option>Kawasaki</option>
+                                <option>BMW</option>
+                            </select>
+                            <span class="iconify absolute right-3 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down" data-stroke-width="1.5"></span>
+                        </div>
+                        <div class="relative">
+                            <select id="modelSelect" aria-label="Modèle" class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-lg focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 block p-3 pr-8 outline-none transition-all cursor-pointer hover:bg-slate-100">
+                                <option value="">Modèle</option>
+                            </select>
+                            <span class="iconify absolute right-3 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down" data-stroke-width="1.5"></span>
+                        </div>
+                        <div class="relative">
+                            <select id="yearSelect" aria-label="Année" class="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-lg focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 block p-3 pr-8 outline-none transition-all cursor-pointer hover:bg-slate-100">
+                                <option value="">Année</option>
+                            </select>
+                            <span class="iconify absolute right-3 top-3.5 text-slate-400 pointer-events-none" data-icon="lucide:chevron-down" data-stroke-width="1.5"></span>
+                        </div>
+                    </div>
+                    <button id="searchBtn" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-medium py-3.5 px-6 rounded-lg transition-all flex items-center justify-center gap-2 group">
+                        <span class="iconify" data-icon="lucide:search" data-stroke-width="1.5"></span>
+                        Trouver mes pièces
+                        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-stroke-width="1.5"></span>
+                    </button>
+                </div>
+                
+                <div class="mt-6 flex items-center gap-4 text-xs font-medium text-slate-400">
+                    <span class="flex items-center gap-1"><span class="iconify text-brand-600" data-icon="lucide:check-circle" data-stroke-width="1.5"></span> 100% Compatible</span>
+                    <span class="flex items-center gap-1"><span class="iconify text-brand-600" data-icon="lucide:check-circle" data-stroke-width="1.5"></span> Expédition 24h</span>
+                </div>
+            </div>
+
+            <!-- Visual -->
+            <div class="relative group perspective-1000">
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand-100 to-transparent rounded-3xl transform rotate-3 scale-95 opacity-50 group-hover:rotate-2 transition-transform duration-700"></div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100 aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1600&q=80" alt="Moto Moderne" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                    
+                    <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur shadow-lg rounded-xl p-4 border border-slate-100 flex items-center gap-3 pr-8">
+                        <div class="bg-green-100 text-green-700 p-2 rounded-lg">
+                            <span class="iconify" data-icon="lucide:trending-down" data-stroke-width="1.5"></span>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wide font-medium">Économie moy.</div>
+                            <div class="text-lg font-semibold text-slate-900">-35% sur l'origine</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <button id="searchBtn" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-medium py-3.5 rounded-lg flex items-center justify-center gap-2">
+          <span class="iconify" data-icon="lucide:search"></span> Trouver mes pièces
+        </button>
+      </div>
+
+      <div class="mt-6 flex items-center gap-4 text-xs font-medium text-slate-400">
+        <span class="flex items-center gap-1"><span class="iconify text-brand-600" data-icon="lucide:check-circle"></span> 100% Compatible</span>
+        <span class="flex items-center gap-1"><span class="iconify text-brand-600" data-icon="lucide:check-circle"></span> Expédition 24h</span>
+      </div>
+    </div>
+
+    <div class="relative group perspective-1000">
+      <div class="absolute inset-0 bg-gradient-to-tr from-brand-100 to-transparent rounded-3xl transform rotate-3 scale-95 opacity-50 group-hover:rotate-2 transition-transform duration-700"></div>
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-100 aspect-[4/3]">
+        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1600&q=80" alt="Moto Moderne" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
+        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur shadow-lg rounded-xl p-4 border border-slate-100 flex items-center gap-3 pr-8">
+          <div class="bg-green-100 text-green-700 p-2 rounded-lg">
+            <span class="iconify" data-icon="lucide:trending-down"></span>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500 uppercase tracking-wide font-medium">Économie moy.</div>
+            <div class="text-lg font-semibold text-slate-900">-35% sur l'origine</div>
+          </div>
+        </div>
+    </header>
+
+    <!-- Results Section (hidden until search) -->
+    <section id="resultsSection" class="max-w-7xl mx-auto px-6 -mt-6 mb-12 hidden">
+        <div id="resultsContainer" class="grid gap-6"></div>
+    </section>
+
+    <!-- Categories / Products Section (existing) -->
+    <section id="categories" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="font-display text-3xl font-semibold text-slate-900 tracking-tight mb-2">Nos pièces les plus recherchées</h2>
+                    <p class="text-slate-500">L'essentiel pour l'entretien et la réparation.</p>
+                </div>
+                <a href="#" class="text-brand-600 font-medium text-sm hover:text-brand-700 flex items-center gap-1 group">
+                    Voir tout le catalogue 
+                    <span class="iconify transform group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-stroke-width="1.5"></span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Cards... (kept as in original) -->
+                <a href="#" class="group block p-6 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/50 transition-all bg-slate-50 hover:bg-white text-center">
+                    <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                        <span class="iconify text-slate-700" data-icon="lucide:settings" data-stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Pièces Moteur</h3>
+                    <p class="text-xs text-slate-400 mt-1">Pistons, joints...</p>
+                </a>
+                <a href="#" class="group block p-6 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/50 transition-all bg-slate-50 hover:bg-white text-center">
+                    <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                        <span class="iconify text-slate-700" data-icon="lucide:shield" data-stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Carénages</h3>
+                    <p class="text-xs text-slate-400 mt-1">Kits plastiques</p>
+                </a>
+                <a href="#" class="group block p-6 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/50 transition-all bg-slate-50 hover:bg-white text-center">
+                    <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                        <span class="iconify text-slate-700" data-icon="lucide:disc" data-stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Freinage</h3>
+                    <p class="text-xs text-slate-400 mt-1">Plaquettes, disques</p>
+                </a>
+                <a href="#" class="group block p-6 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/50 transition-all bg-slate-50 hover:bg-white text-center">
+                    <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                        <span class="iconify text-slate-700" data-icon="lucide:droplets" data-stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Consommables</h3>
+                    <p class="text-xs text-slate-400 mt-1">Huiles, filtres</p>
+                </a>
+                <a href="#" class="group block p-6 rounded-xl border border-slate-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/50 transition-all bg-slate-50 hover:bg-white text-center">
+                    <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                        <span class="iconify text-slate-700" data-icon="lucide:wrench" data-stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="font-medium text-slate-900">Accessoires</h3>
+                    <p class="text-xs text-slate-400 mt-1">Outillage, custom</p>
+                </a>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-slate-900 text-white hover:bg-slate-800 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-slate-900/20">
+                    Trouver mes pièces maintenant
+                </button>
+            </div>
       </div>
     </div>
   </div>
-<!-- HEADER -->
-<header class="bg-white shadow p-6 text-center">
-  <h1 class="text-3xl font-bold">PARTIFY MOTO</h1>
-  <p class="text-slate-500">Pièces moto – carénages, freinage, moteur</p>
 </header>
 
 <!-- RESULTS (hidden until search) -->
-@@ -212,16 +193,6 @@ <h3 class="font-medium text-slate-900">Accessoires</h3>
+<section id="resultsSection" class="max-w-7xl mx-auto px-6 -mt-6 mb-12 hidden">
+  <div id="resultsContainer" class="grid gap-6"></div>
+</section>
+
+<!-- CATEGORIES (kept) -->
+<section id="categories" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <h2 class="font-display text-3xl font-semibold text-slate-900 tracking-tight mb-2">Nos pièces les plus recherchées</h2>
+        <p class="text-slate-500">L'essentiel pour l'entretien et la réparation.</p>
+      </div>
+      <a href="#" class="text-brand-600 font-medium text-sm hover:text-brand-700 flex items-center gap-1 group">
+        Voir tout le catalogue <span class="iconify transform group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <!-- cards kept simple -->
+      <a class="group block p-6 rounded-xl border border-slate-200 bg-slate-50 text-center hover:shadow-lg transition-all">
+        <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
+          <span class="iconify text-slate-700" data-icon="lucide:settings"></span>
+        </div>
+    </section>
+
+    <!-- Testimonials & Footer (kept mostly unchanged) -->
+    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h2 class="font-display text-3xl font-semibold text-center mb-16 tracking-tight">Ils ont trouvé leurs pièces facilement</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 backdrop-blur-sm">
+                    <div class="flex gap-1 text-brand-500 mb-4">
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                    </div>
+                    <p class="text-lg text-slate-200 italic mb-6">"J’ai trouvé toutes les pièces de ma 125 en 2 minutes et à moindre coût ! L'interface est super intuitive."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-sm font-bold">AL</div>
+                        <div>
+                            <div class="font-medium text-white">Alex</div>
+                            <div class="text-xs text-slate-400">Motard passionné</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 backdrop-blur-sm">
+                    <div class="flex gap-1 text-brand-500 mb-4">
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                        <span class="iconify" data-icon="lucide:star" data-stroke-width="0" style="fill: currentColor;"></span>
+                    </div>
+                    <p class="text-lg text-slate-200 italic mb-6">"Partify Moto m’a fait gagner du temps et de l’argent. Plus besoin de chercher partout, je recommande."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-sm font-bold">LE</div>
+                        <div>
+                            <div class="font-medium text-white">Léa</div>
+                            <div class="text-xs text-slate-400">Motarde quotidienne</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <h3 class="font-medium text-slate-900">Pièces Moteur</h3>
+        <p class="text-xs text-slate-400 mt-1">Pistons, joints...</p>
+      </a>
+
+      <a class="group block p-6 rounded-xl border border-slate-200 bg-slate-50 text-center hover:shadow-lg transition-all">
+        <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
+          <span class="iconify text-slate-700" data-icon="lucide:shield"></span>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white">
+                            <span class="iconify text-xs" data-icon="lucide:zap" data-stroke-width="2"></span>
+                        </div>
+                        <span class="font-display font-semibold text-slate-900 tracking-tight">PARTIFY MOTO</span>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        La plateforme de référence pour trouver les pièces compatibles avec ta moto au meilleur prix.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-4 text-sm">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-brand-600 transition-colors">À propos</a></li>
+                        <li><a href="#" class="hover:text-brand-600 transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-brand-600 transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-4 text-sm">Légal</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-brand-600 transition-colors">CGV</a></li>
+                        <li><a href="#" class="hover:text-brand-600 transition-colors">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-brand-600 transition-colors">Mentions légales</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-brand-500 hover:text-brand-500 transition-all">
+                            <span class="iconify" data-icon="lucide:instagram" data-stroke-width="1.5"></span>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-brand-500 hover:text-brand-500 transition-all">
+                            <span class="iconify" data-icon="lucide:facebook" data-stroke-width="1.5"></span>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-brand-500 hover:text-brand-500 transition-all">
+                            <span class="iconify" data-icon="lucide:video" data-stroke-width="1.5"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+                <p>© 2025 Partify Moto. Tous droits réservés.</p>
+                <div class="flex gap-6">
+                    <span>Fait avec passion pour les motards</span>
+                </div>
+            </div>
+        <h3 class="font-medium text-slate-900">Carénages</h3>
+        <p class="text-xs text-slate-400 mt-1">Kits plastiques</p>
+      </a>
+
+      <a class="group block p-6 rounded-xl border border-slate-200 bg-slate-50 text-center hover:shadow-lg transition-all">
+        <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
+          <span class="iconify text-slate-700" data-icon="lucide:disc"></span>
+        </div>
+    </footer>
+        <h3 class="font-medium text-slate-900">Freinage</h3>
+        <p class="text-xs text-slate-400 mt-1">Plaquettes, disques</p>
+      </a>
+
+    <!-- SCRIPT: data + UI logic -->
+    <script>
+        // Data: marques -> modèles -> années (range 2000-2025) -> produits (OEM & Acerbis)
+        const startYear = 2000;
+        const endYear = 2025;
+        const years = Array.from({length: endYear - startYear + 1}, (_,i) => (startYear + i).toString()).reverse();
+
+        const catalog = {
+            "Yamaha": {
+                models: {
+                    // Piwi / PW50 is often called PW50; using PW50 label
+                    "PW50": { // Piwi 50
+                        years: years,
+                        products: {
+                            oem: {
+                                title: "Carénage d'origine Yamaha PW50",
+                                price: 129.90,
+                                vendor: "Yamaha OEM",
+                                img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=60",
+                                desc: "Carénage d’origine Yamaha, finition OEM, adapté parfaitement au PW50."
+                            },
+                            acerbis: {
+                                title: "Carénage Acerbis - PW50 (Qualité Premium)",
+                                price: 69.90,
+                                vendor: "Acerbis",
+                                img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=60",
+                                desc: "Kit carénage Acerbis, plastique résistant, finition premium pour usage cross et loisirs."
+                            }
+                        }
+                    },
+                    "YZ85": {
+                        years: years,
+                        products: {
+                            oem: {
+                                title: "Carénage d'origine Yamaha YZ85",
+                                price: 179.90,
+                                vendor: "Yamaha OEM",
+                                img: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=60",
+                                desc: "Carénage OEM YZ85, livré peint selon spécifications constructeur."
+                            },
+                            acerbis: {
+                                title: "Carénage Acerbis - YZ85 (Qualité Premium)",
+                                price: 89.90,
+                                vendor: "Acerbis",
+                                img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60",
+                                desc: "Kit Acerbis adapté YZ85 : robuste, léger et facile à monter."
+                            }
+                        }
+                    },
+                    "YZ125": {
+                        years: years,
+                        products: {
+                            oem: {
+                                title: "Carénage d'origine Yamaha YZ125",
+                                price: 199.90,
+                                vendor: "Yamaha OEM",
+                                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=60",
+                                desc: "Carénage officiel Yamaha YZ125 — qualité constructeur."
+                            },
+                            acerbis: {
+                                title: "Carénage Acerbis - YZ125 (Qualité Premium)",
+                                price: 99.90,
+                                vendor: "Acerbis",
+                                img: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=60",
+                                desc: "Acerbis premium — parfait pour entraînements et compétitions amateurs."
+                            }
+                        }
+                    },
+                    "YZ250": {
+                        years: years,
+                        products: {
+                            oem: {
+                                title: "Carénage d'origine Yamaha YZ250",
+                                price: 249.90,
+                                vendor: "Yamaha OEM",
+                                img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=60",
+                                desc: "Kit carénage OEM pour YZ250, finition et couleurs d'origine."
+                            },
+                            acerbis: {
+                                title: "Carénage Acerbis - YZ250 (Qualité Premium)",
+                                price: 119.90,
+                                vendor: "Acerbis",
+                                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=60",
+                                desc: "Carénage Acerbis : robuste, résistant aux chocs, montage simple."
+                            }
+                        }
+                    },
+                    "YZ450F": {
+                        years: years,
+                        products: {
+                            oem: {
+                                title: "Carénage d'origine Yamaha YZ450F",
+                                price: 299.90,
+                                vendor: "Yamaha OEM",
+                                img: "https://images.unsplash.com/photo-1512486130939-573685c09b58?auto=format&fit=crop&w=800&q=60",
+                                desc: "Carénage OEM YZ450F — pièces constructeur, finition soignée."
+                            },
+                            acerbis: {
+                                title: "Carénage Acerbis - YZ450F (Qualité Premium)",
+                                price: 149.90,
+                                vendor: "Acerbis",
+                                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=60",
+                                desc: "Acerbis premium pour YZ450F : très résistant, adapté au cross intensif."
+                            }
+                        }
+                    }
+                }
+            },
+            // Minimal placeholder for other brands so selects remain meaningful
+            "Honda": { models: { "CRF50": { years, products: {} }, "CRF125": { years, products: {} } } },
+            "Kawasaki": { models: { "KX65": { years, products: {} }, "KX250": { years, products: {} } } },
+            "BMW": { models: { "GS 1250": { years, products: {} }, "R 1250": { years, products: {} } } }
+        };
+      <a class="group block p-6 rounded-xl border border-slate-200 bg-slate-50 text-center hover:shadow-lg transition-all">
+        <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
+          <span class="iconify text-slate-700" data-icon="lucide:droplets"></span>
+        </div>
+        <h3 class="font-medium text-slate-900">Consommables</h3>
+        <p class="text-xs text-slate-400 mt-1">Huiles, filtres</p>
+      </a>
+
+        // Populate Model select when brand changes
+        const brandSelect = document.getElementById('brandSelect');
+        const modelSelect = document.getElementById('modelSelect');
+        const yearSelect = document.getElementById('yearSelect');
+        const searchBtn = document.getElementById('searchBtn');
+        const resultsSection = document.getElementById('resultsSection');
+        const resultsContainer = document.getElementById('resultsContainer');
+
+        function clearSelect(sel, placeholder = 'Sélection') {
+            sel.innerHTML = '';
+            const opt = document.createElement('option');
+            opt.value = '';
+            opt.textContent = placeholder;
+            sel.appendChild(opt);
+        }
+      <a class="group block p-6 rounded-xl border border-slate-200 bg-slate-50 text-center hover:shadow-lg transition-all">
+        <div class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
+          <span class="iconify text-slate-700" data-icon="lucide:wrench"></span>
+        </div>
+        <h3 class="font-medium text-slate-900">Accessoires</h3>
+        <p class="text-xs text-slate-400 mt-1">Outillage, custom</p>
+      </a>
+    </div>
+
     <div class="mt-12 text-center">
       <button class="bg-slate-900 text-white hover:bg-slate-800 px-8 py-3 rounded-lg font-medium transition-colors shadow-lg">Trouver mes pièces maintenant</button>
     </div>
-<!-- SELECT -->
-<section class="max-w-4xl mx-auto p-6">
-  <div class="grid grid-cols-3 gap-3">
-    <select id="brand" class="p-3 border rounded">
-      <option value="">Marque</option>
-      <option>Yamaha</option>
-      <option>Honda</option>
-    </select>
-    <select id="model" class="p-3 border rounded"></select>
-    <select id="year" class="p-3 border rounded"></select>
   </div>
 </section>
 
-@@ -244,10 +215,6 @@ <h2 class="font-display text-3xl font-semibold text-center mb-16 tracking-tight"
+<!-- TESTIMONIALS & FOOTER (kept simple) -->
+<section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <h2 class="font-display text-3xl font-semibold text-center mb-16 tracking-tight">Ils ont trouvé leurs pièces facilement</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+        <div class="flex gap-1 text-brand-500 mb-4">
+          <span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span>
+        </div>
+        <p class="text-lg text-slate-200 italic mb-6">"J’ai trouvé toutes les pièces de ma 125 en 2 minutes et à moindre coût !"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-sm font-bold">AL</div>
+          <div>
+            <div class="font-medium text-white">Alex</div>
+            <div class="text-xs text-slate-400">Motard passionné</div>
           </div>
         </div>
       </div>
-  <button id="search" class="mt-4 w-full bg-orange-600 text-white p-3 rounded">
-    Trouver mes pièces
-  </button>
-</section>
 
+        function populateModels(brand) {
+            clearSelect(modelSelect, 'Modèle');
+            clearSelect(yearSelect, 'Année');
+            if (!brand || !catalog[brand]) return;
+            const models = Object.keys(catalog[brand].models);
+            models.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = m;
+                opt.textContent = m;
+                modelSelect.appendChild(opt);
+            });
       <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
         <div class="flex gap-1 text-brand-500 mb-4">
-@@ -263,13 +230,6 @@ <h2 class="font-display text-3xl font-semibold text-center mb-16 tracking-tight"
+          <span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span><span class="iconify" data-icon="lucide:star"></span>
+        </div>
+        <p class="text-lg text-slate-200 italic mb-6">"Partify Moto m’a fait gagner du temps et de l’argent. Je recommande."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-sm font-bold">LE</div>
+          <div>
+            <div class="font-medium text-white">Léa</div>
+            <div class="text-xs text-slate-400">Motarde quotidienne</div>
+          </div>
         </div>
       </div>
     </div>
-<!-- FILTER -->
-<section class="max-w-6xl mx-auto px-6 hidden" id="filters">
-  <div class="flex gap-2 mb-4">
-    <button data-cat="all" class="filter-btn border px-3 py-1 rounded active">Tous</button>
-    <button data-cat="carenage" class="filter-btn border px-3 py-1 rounded">Carénages</button>
-    <button data-cat="freinage" class="filter-btn border px-3 py-1 rounded">Freinage</button>
-    <button data-cat="moteur" class="filter-btn border px-3 py-1 rounded">Moteur</button>
   </div>
 </section>
 
-@@ -294,8 +254,6 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Navigation</h4>
+<footer class="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white">
+            <span class="iconify text-xs" data-icon="lucide:zap"></span>
+          </div>
+          <span class="font-display font-semibold text-slate-900 tracking-tight">PARTIFY MOTO</span>
+        </div>
+        <p class="text-sm text-slate-500 leading-relaxed">La plateforme de référence pour trouver les pièces compatibles avec ta moto au meilleur prix.</p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4 text-sm">Navigation</h4>
+        <ul class="space-y-2 text-sm text-slate-500">
+          <li><a href="#" class="hover:text-brand-600">À propos</a></li>
+          <li><a href="#" class="hover:text-brand-600">Contact</a></li>
           <li><a href="#" class="hover:text-brand-600">Blog</a></li>
         </ul>
       </div>
-<!-- RESULTS -->
-<section id="results" class="max-w-6xl mx-auto px-6 grid gap-6"></section>
 
       <div>
         <h4 class="font-semibold text-slate-900 mb-4 text-sm">Légal</h4>
-@@ -463,12 +421,7 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+        <ul class="space-y-2 text-sm text-slate-500">
+          <li><a href="#" class="hover:text-brand-600">CGV</a></li>
+          <li><a href="#" class="hover:text-brand-600">Politique de confidentialité</a></li>
+          <li><a href="#" class="hover:text-brand-600">Mentions légales</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+        <div class="flex gap-4">
+          <a class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-brand-500"><span class="iconify" data-icon="lucide:instagram"></span></a>
+          <a class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-brand-500"><span class="iconify" data-icon="lucide:facebook"></span></a>
+          <a class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-brand-500"><span class="iconify" data-icon="lucide:video"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+      <p>© 2025 Partify Moto. Tous droits réservés.</p>
+      <div class="flex gap-6"><span>Fait avec passion pour les motards</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS: data + logic + carousel -->
+<script>
+/* ---------------------------
+   Helper: placeholder SVG dataURI
+   --------------------------- */
+function makePlaceholderDataURI(titleLine, subtitleLine, w = 1200, h = 800, bg = '#f1f5f9', fg = '#0f172a') {
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'>
+    <rect width='100%' height='100%' fill='${bg}'/>
+    <g fill='${fg}' font-family='Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial' text-anchor='middle'>
+      <text x='50%' y='45%' font-size='44' font-weight='700'>${escapeHtml(titleLine)}</text>
+      <text x='50%' y='55%' font-size='24' opacity='0.8'>${escapeHtml(subtitleLine)}</text>
+    </g>
+  </svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+function escapeHtml(s) { return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+/* ---------------------------
+   Years & Catalog (images incl.)
+   --------------------------- */
+const startYear = 2000, endYear = 2025;
+const years = Array.from({length: endYear - startYear + 1}, (_,i) => (startYear + i).toString()).reverse();
+
+// Note: images from Unsplash/Pexels used for illustration (free to use).
+// Placeholders generated via makePlaceholderDataURI for OEM/Acerbis additional views.
+const catalog = {
+  "Yamaha": {
+    models: {
+      "PW50": {
+        years,
+        products: {
+          oem: {
+            title: "Carénage d'origine Yamaha PW50",
+            price: 129.90,
+            vendor: "Yamaha OEM",
+            // Unsplash image (free to use) - illustrates product
+            imgMain: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80",
+            imgs: [] ,
+            desc: "Carénage d’origine Yamaha, finition OEM, adapté parfaitement au PW50."
+          },
+          acerbis: {
+            title: "Carénage Acerbis - PW50 (Qualité Premium)",
+            price: 69.90,
+            vendor: "Acerbis",
+            imgMain: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Kit carénage Acerbis, plastique résistant, finition premium pour usage cross et loisirs."
+          }
+        }
+
+        function populateYears(brand, model) {
+            clearSelect(yearSelect, 'Année');
+            if (!brand || !model) return;
+            const modelObj = catalog[brand]?.models[model];
+            const ys = modelObj?.years || years;
+            ys.forEach(y => {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = y;
+                yearSelect.appendChild(opt);
+            });
+      },
+      "YZ85": {
+        years,
+        products: {
+          oem: {
+            title: "Carénage d'origine Yamaha YZ85",
+            price: 179.90,
+            vendor: "Yamaha OEM",
+            imgMain: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Carénage OEM YZ85, livré peint selon spécifications constructeur."
+          },
+          acerbis: {
+            title: "Carénage Acerbis - YZ85 (Qualité Premium)",
+            price: 89.90,
+            vendor: "Acerbis",
+            imgMain: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Kit Acerbis adapté YZ85 : robuste, léger et facile à monter."
+          }
+        }
+
+        // On brand change
+        brandSelect.addEventListener('change', (e) => {
+            populateModels(e.target.value);
+            resultsSection.classList.add('hidden');
+            resultsContainer.innerHTML = '';
+        });
+
+        // On model change
+        modelSelect.addEventListener('change', (e) => {
+            populateYears(brandSelect.value, e.target.value);
+            resultsSection.classList.add('hidden');
+            resultsContainer.innerHTML = '';
+        });
+
+        // Utility: format price
+        function formatPrice(p) {
+            return p.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' });
+      },
+      "YZ125": {
+        years,
+        products: {
+          oem: {
+            title: "Carénage d'origine Yamaha YZ125",
+            price: 199.90,
+            vendor: "Yamaha OEM",
+            imgMain: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Carénage officiel Yamaha YZ125 — qualité constructeur."
+          },
+          acerbis: {
+            title: "Carénage Acerbis - YZ125 (Qualité Premium)",
+            price: 99.90,
+            vendor: "Acerbis",
+            imgMain: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Acerbis premium — parfait pour entraînements et compétitions amateurs."
+          }
+        }
+
+        // Render product card (OEM or Acerbis)
+        function createProductCard(product, typeLabel, selectedInfo) {
+            const card = document.createElement('div');
+            card.className = "grid grid-cols-1 md:grid-cols-3 gap-4 items-center p-4 rounded-xl border border-slate-200 bg-white shadow-sm";
+
+            const imgWrap = document.createElement('div');
+            imgWrap.className = "md:col-span-1";
+            const img = document.createElement('img');
+            img.className = "w-full h-44 object-cover rounded-md";
+            img.src = product.img || "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=60";
+            img.alt = product.title;
+            imgWrap.appendChild(img);
+
+            const content = document.createElement('div');
+            content.className = "md:col-span-2";
+            const top = document.createElement('div');
+            top.className = "flex items-start justify-between gap-4";
+            const left = document.createElement('div');
+            const title = document.createElement('h3');
+            title.className = "text-lg font-semibold text-slate-900";
+            title.textContent = product.title;
+            const vendor = document.createElement('div');
+            vendor.className = "text-xs text-slate-500 mt-1";
+            vendor.textContent = product.vendor + " • " + selectedInfo;
+            left.appendChild(title);
+            left.appendChild(vendor);
+            const badge = document.createElement('div');
+            badge.className = "text-xs font-medium px-2 py-1 rounded-lg";
+            if (typeLabel === 'OEM') {
+                badge.classList.add('bg-slate-100','text-slate-800');
+                badge.textContent = "ORIGINE";
+            } else {
+                badge.classList.add('bg-brand-50','text-brand-700','border','border-brand-100');
+                badge.textContent = "QUALITÉ PREMIUM (Acerbis)";
+            }
+            top.appendChild(left);
+            top.appendChild(badge);
+
+            const desc = document.createElement('p');
+            desc.className = "text-sm text-slate-500 mt-3";
+            desc.textContent = product.desc;
+
+            const priceRow = document.createElement('div');
+            priceRow.className = "mt-4 flex items-center justify-between gap-4";
+            const price = document.createElement('div');
+            price.className = "text-xl font-bold text-slate-900";
+            price.textContent = formatPrice(product.price);
+            const qtyWrap = document.createElement('div');
+            qtyWrap.className = "flex items-center gap-2";
+            const qtyLabel = document.createElement('label');
+            qtyLabel.className = "text-xs text-slate-500 mr-2";
+            qtyLabel.textContent = "Quantité";
+            qtyLabel.setAttribute('for', 'qty');
+            const qtySelect = document.createElement('select');
+            qtySelect.className = "px-3 py-2 border border-slate-200 rounded-lg text-sm";
+            // options 1..10
+            for (let i=1;i<=10;i++) {
+                const o = document.createElement('option');
+                o.value = i;
+                o.textContent = i;
+                qtySelect.appendChild(o);
+            }
+            qtyWrap.appendChild(qtyLabel);
+            qtyWrap.appendChild(qtySelect);
+
+            const actions = document.createElement('div');
+            actions.className = "mt-4 flex items-center gap-3";
+            const btn = document.createElement('button');
+            btn.className = "bg-brand-600 hover:bg-brand-500 text-white font-medium px-4 py-2 rounded-lg transition-colors";
+            btn.textContent = "Passer commande";
+            // non-functional for now - show a small toast
+            btn.addEventListener('click', () => {
+                btn.disabled = true;
+                btn.textContent = "Ajouté ✓";
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = "Passer commande";
+                }, 900);
+            });
+
+            actions.appendChild(btn);
+
+            priceRow.appendChild(price);
+            priceRow.appendChild(qtyWrap);
+
+            content.appendChild(top);
+            content.appendChild(desc);
+            content.appendChild(priceRow);
+            content.appendChild(actions);
+
+            card.appendChild(imgWrap);
+            card.appendChild(content);
+
+            return card;
+      },
+      "YZ250": {
+        years,
+        products: {
+          oem: {
+            title: "Carénage d'origine Yamaha YZ250",
+            price: 249.90,
+            vendor: "Yamaha OEM",
+            imgMain: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Kit carénage OEM pour YZ250, finition et couleurs d'origine."
+          },
+          acerbis: {
+            title: "Carénage Acerbis - YZ250 (Qualité Premium)",
+            price: 119.90,
+            vendor: "Acerbis",
+            imgMain: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Carénage Acerbis : robuste, résistant aux chocs, montage simple."
+          }
+        }
+
+        // Perform search and render results under the widget
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const brand = brandSelect.value;
+            const model = modelSelect.value;
+            const year = yearSelect.value;
+
+            resultsContainer.innerHTML = '';
+            if (!brand || !model || !year) {
+                // simple inline feedback
+                resultsContainer.innerHTML = `
+                    <div class="p-4 rounded-lg border border-amber-200 bg-amber-50 text-amber-700">
+                        <strong>Attention :</strong> sélectionne la marque, le modèle et l'année pour voir les carénages.
+                    </div>
+                `;
+                resultsSection.classList.remove('hidden');
+                return;
+            }
+
+            // Try to get products; fallback to empty if not present
+            const modelObj = catalog[brand]?.models[model];
+            const products = modelObj?.products || {};
+            const oem = products.oem || null;
+            const acer = products.acerbis || null;
+
+            // If no specific products found, show a friendly fallback
+            if (!oem && !acer) {
+                resultsContainer.innerHTML = `
+                    <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm">
+                        <h3 class="text-lg font-semibold text-slate-900">Aucun carénage référencé pour ${brand} ${model} ${year}</h3>
+                        <p class="text-sm text-slate-500 mt-2">Je peux ajouter des références pour ce modèle — dis-moi si tu veux que j'en recherche.</p>
+                    </div>
+                `;
+                resultsSection.classList.remove('hidden');
+                return;
+            }
+
+            // Selected info string
+            const selectedInfo = `${brand} • ${model} • ${year}`;
+
+            // Render OEM first (if exists)
+            if (oem) {
+                const oemCard = createProductCard(oem, 'OEM', selectedInfo);
+                resultsContainer.appendChild(oemCard);
+            }
+
+            // Render Acerbis (premium) second
+            if (acer) {
+                const acerCard = createProductCard(acer, 'ACERBIS', selectedInfo);
+                resultsContainer.appendChild(acerCard);
+            }
+
+            // Make results section visible and scroll to it smoothly
+            resultsSection.classList.remove('hidden');
+            // small delay to allow layout then scroll
+            setTimeout(() => {
+                resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        });
+
+        // Initialize: prefill model/year if brand already selected (none by default)
+        (function init() {
+            // nothing to preselect; but ensure brand->models available if user navigates
+            // Optionally, we can set default brand to Yamaha
+            // brandSelect.value = "Yamaha";
+            // populateModels("Yamaha");
+        })();
+    </script>
+      },
+      "YZ450F": {
+        years,
+        products: {
+          oem: {
+            title: "Carénage d'origine Yamaha YZ450F",
+            price: 299.90,
+            vendor: "Yamaha OEM",
+            imgMain: "https://images.unsplash.com/photo-1512486130939-573685c09b58?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Carénage OEM YZ450F — pièces constructeur, finition soignée."
+          },
+          acerbis: {
+            title: "Carénage Acerbis - YZ450F (Qualité Premium)",
+            price: 149.90,
+            vendor: "Acerbis",
+            imgMain: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+            imgs: [],
+            desc: "Acerbis premium pour YZ450F : très résistant, adapté au cross intensif."
+          }
+        }
+      }
+    }
+  },
+  // Minimal placeholders for other brands
   "Honda": { models: { "CRF50": { years, products: {} }, "CRF125": { years, products: {} } }},
   "Kawasaki": { models: { "KX65": { years, products: {} }, "KX250": { years, products: {} } }},
   "BMW": { models: { "GS 1250": { years, products: {} }, "R 1250": { years, products: {} } }}
-/* DATA */
-const models = {
-  Yamaha:["PW50","YZ85","YZ125","YZ250","YZ450F"],
-  Honda:["CRF50","CRF125"]
 };
-const years=[...Array(10)].map((_,i)=>2025-i);
 
 // Build image arrays (1 real + 3 placeholders) for each product
 Object.keys(catalog).forEach(brand => {
-@@ -646,27 +599,9 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+  const brandObj = catalog[brand];
+  if (!brandObj.models) return;
+  Object.keys(brandObj.models).forEach(model => {
+    const modelObj = brandObj.models[model];
+    const prods = modelObj.products || {};
+    Object.keys(prods).forEach(k => {
+      const p = prods[k];
+      // main image (real) + 3 placeholders (front/side/detail)
+      const main = p.imgMain || "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80";
+      const pl1 = makePlaceholderDataURI(`${brand} ${model}`, `${k.toUpperCase()} • Vue avant`);
+      const pl2 = makePlaceholderDataURI(`${brand} ${model}`, `${k.toUpperCase()} • Vue latérale`);
+      const pl3 = makePlaceholderDataURI(`${brand} ${model}`, `${k.toUpperCase()} • Détail`);
+      p.imgs = [main, pl1, pl2, pl3];
+    });
+  });
+});
+
+/* ---------------------------
+   UI references
+   --------------------------- */
+const brandSelect = document.getElementById('brandSelect');
+const modelSelect = document.getElementById('modelSelect');
+const yearSelect = document.getElementById('yearSelect');
+const searchBtn = document.getElementById('searchBtn');
+const resultsSection = document.getElementById('resultsSection');
+const resultsContainer = document.getElementById('resultsContainer');
+
+function clearSelect(sel, placeholderText) {
+  sel.innerHTML = "";
+  const opt = document.createElement('option');
+  opt.value = "";
+  opt.textContent = placeholderText;
+  sel.appendChild(opt);
+}
+
+function populateModels(brand) {
+  clearSelect(modelSelect, 'Modèle');
+  clearSelect(yearSelect, 'Année');
+  if (!brand || !catalog[brand]) return;
+  const models = Object.keys(catalog[brand].models);
+  models.forEach(m => {
+    const o = document.createElement('option'); o.value = m; o.textContent = m; modelSelect.appendChild(o);
+  });
+}
+
+function populateYears(brand, model) {
+  clearSelect(yearSelect, 'Année');
+  if (!brand || !model) return;
+  const ys = catalog[brand].models[model].years || years;
+  ys.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; yearSelect.appendChild(o); });
+}
+
+brandSelect.addEventListener('change', e => { populateModels(e.target.value); resultsSection.classList.add('hidden'); resultsContainer.innerHTML = ''; });
+modelSelect.addEventListener('change', e => { populateYears(brandSelect.value, e.target.value); resultsSection.classList.add('hidden'); resultsContainer.innerHTML = ''; });
+
+/* ---------------------------
+   Carousel creation and product card rendering (B = slider)
+   --------------------------- */
+function formatPrice(p){ return p.toLocaleString('fr-FR',{style:'currency',currency:'EUR'}); }
+
+function createCarousel(imgs) {
+  // root
+  const wrap = document.createElement('div');
+  wrap.className = "relative w-full";
+
+  // image container
+  const imgEl = document.createElement('img');
+  imgEl.className = "w-full h-44 md:h-48 object-cover rounded-md";
+  imgEl.src = imgs[0];
+  imgEl.alt = "Image produit";
+  wrap.appendChild(imgEl);
+
+  // controls
+  const leftBtn = document.createElement('button');
+  leftBtn.setAttribute('aria-label','Précédent');
+  leftBtn.className = "absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white px-2 py-1 rounded-md shadow";
+  leftBtn.innerHTML = `<span class="iconify" data-icon="lucide:chevron-left"></span>`;
+  const rightBtn = document.createElement('button');
+  rightBtn.setAttribute('aria-label','Suivant');
+  rightBtn.className = "absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white px-2 py-1 rounded-md shadow";
+  rightBtn.innerHTML = `<span class="iconify" data-icon="lucide:chevron-right"></span>`;
+
+  wrap.appendChild(leftBtn);
+  wrap.appendChild(rightBtn);
+
+  // thumbnail strip (mobile horizontal scroll)
+  const thumbs = document.createElement('div');
+  thumbs.className = "mt-2 flex gap-2 overflow-x-auto";
+  imgs.forEach((src, idx) => {
+    const t = document.createElement('button');
+    t.className = "flex-none w-20 h-12 rounded-md overflow-hidden border border-slate-200";
+    const ti = document.createElement('img');
+    ti.className = "w-full h-full object-cover";
+    ti.src = src;
+    ti.alt = `Vignette ${idx+1}`;
+    t.appendChild(ti);
+    t.addEventListener('click', () => {
+      current = idx; imgEl.src = imgs[current];
+    });
+    thumbs.appendChild(t);
+  });
+
+  // carousel state
+  let current = 0;
+  leftBtn.addEventListener('click', () => {
+    current = (current - 1 + imgs.length) % imgs.length;
+    imgEl.src = imgs[current];
+  });
+  rightBtn.addEventListener('click', () => {
+    current = (current + 1) % imgs.length;
+    imgEl.src = imgs[current];
+  });
+
+  wrap.appendChild(thumbs);
+  return wrap;
+}
+
+function createProductCard(product, typeLabel, selectedInfo) {
+  const card = document.createElement('div');
+  card.className = "p-4 rounded-xl border border-slate-200 bg-white shadow-sm";
+
+  // Grid: image / content
+  const grid = document.createElement('div');
+  grid.className = "grid grid-cols-1 md:grid-cols-3 gap-4 items-start";
+
+  // carousel (col 1)
+  const carouselWrap = document.createElement('div');
+  carouselWrap.className = "md:col-span-1";
+  const carousel = createCarousel(product.imgs || [product.imgMain]);
+  carouselWrap.appendChild(carousel);
+
+  // content (col 2-3)
+  const content = document.createElement('div');
+  content.className = "md:col-span-2";
+
+  // header: title + badge
+  const header = document.createElement('div');
+  header.className = "flex items-start justify-between gap-4";
+
+  const left = document.createElement('div');
+  const title = document.createElement('h3');
+  title.className = "text-lg font-semibold text-slate-900";
+  title.textContent = product.title;
+  const vendor = document.createElement('div');
+  vendor.className = "text-xs text-slate-500 mt-1";
+  vendor.textContent = product.vendor + " • " + selectedInfo;
+  left.appendChild(title);
+  left.appendChild(vendor);
+
+  const badge = document.createElement('div');
+  badge.className = "text-xs font-medium px-2 py-1 rounded-lg";
+  if (typeLabel === 'OEM') {
+    badge.classList.add('bg-slate-100','text-slate-800');
+    badge.textContent = "ORIGINE";
+  } else {
+    badge.classList.add('bg-brand-50','text-brand-700','border','border-brand-100');
+    badge.textContent = "QUALITÉ PREMIUM (Acerbis)";
+  }
+
+  header.appendChild(left);
+  header.appendChild(badge);
+
+  // description
+  const desc = document.createElement('p');
+  desc.className = "text-sm text-slate-500 mt-3";
+  desc.textContent = product.desc;
+
+  // price/qty/action
+  const bottom = document.createElement('div');
+  bottom.className = "mt-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4";
+
   const price = document.createElement('div');
   price.className = "text-xl font-bold text-slate-900";
   price.textContent = formatPrice(product.price);
-const img = {
- carenage:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
- brake:"https://images.unsplash.com/photo-1600861194942-f883de0dfe96?auto=format&fit=crop&w=800&q=80",
- piston:"https://images.unsplash.com/photo-1604147706283-d7119b5b822c?auto=format&fit=crop&w=800&q=80"
-};
 
   const controls = document.createElement('div');
   controls.className = "flex items-center gap-3";
-/* INIT */
-const brand=document.getElementById("brand");
-const model=document.getElementById("model");
-const year=document.getElementById("year");
-const results=document.getElementById("results");
-const filters=document.getElementById("filters");
-
-brand.onchange=()=>{
- model.innerHTML="<option>Modèle</option>";
- models[brand.value]?.forEach(m=>model.innerHTML+=`<option>${m}</option>`);
- year.innerHTML="<option>Année</option>";
- years.forEach(y=>year.innerHTML+=`<option>${y}</option>`);
-};
 
   const qtyWrap = document.createElement('div');
   qtyWrap.className = "flex items-center gap-2";
-@@ -677,51 +612,13 @@ <h4 class="font-semibold text-slate-900 mb-4 text-sm">Suivez-nous</h4>
+  const qtyLabel = document.createElement('label');
+  qtyLabel.className = "text-xs text-slate-500";
+  qtyLabel.textContent = "Quantité";
+  const qtySelect = document.createElement('select');
   qtySelect.className = "px-3 py-2 border border-slate-200 rounded-lg text-sm";
   for (let i=1;i<=10;i++){ const o=document.createElement('option'); o.value=i; o.textContent=i; qtySelect.appendChild(o); }
   qtyWrap.appendChild(qtyLabel); qtyWrap.appendChild(qtySelect);
-document.getElementById("search").onclick=()=>{
- results.innerHTML="";
- filters.classList.remove("hidden");
-
- const items=[
-  {cat:"carenage",title:"Carénage origine",price:219,img:img.carenage},
-  {cat:"carenage",title:"Carénage premium",price:109,img:img.carenage},
-  {cat:"freinage",title:"Plaquettes origine",price:34,img:img.brake},
-  {cat:"freinage",title:"Plaquettes premium",price:44,img:img.brake},
-  {cat:"moteur",title:"Piston moteur",price:89,img:img.piston},
-  {cat:"moteur",title:"Cylindre moteur",price:219,img:img.piston}
- ];
-
- items.forEach(p=>{
-  results.innerHTML+=`
-  <div class="product bg-white p-4 rounded shadow" data-cat="${p.cat}">
-    <div class="relative">
-      <img src="${p.img}" class="w-full h-48 object-cover rounded">
-    </div>
-    <h3 class="mt-2 font-semibold">${p.title}</h3>
-    <p class="text-orange-600 font-bold">${p.price} €</p>
-    <select class="mt-2 border p-2 w-full">
-      ${[1,2,3,4,5].map(n=>`<option>${n}</option>`).join("")}
-    </select>
-    <button class="mt-2 w-full bg-orange-600 text-white p-2 rounded">
-      Commander
-    </button>
-  </div>`;
- });
-};
 
   const btn = document.createElement('button');
   btn.className = "bg-brand-600 hover:bg-brand-500 text-white font-medium px-4 py-2 rounded-lg transition-colors";
@@ -176,28 +1238,64 @@ document.getElementById("search").onclick=()=>{
   btn.addEventListener('click', () => {
     btn.disabled = true; btn.textContent = "Ajouté ✓";
     setTimeout(()=>{ btn.disabled = false; btn.textContent = "Passer commande"; }, 900);
-/* FILTER */
-document.querySelectorAll(".filter-btn").forEach(btn=>{
- btn.onclick=()=>{
-  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  const c=btn.dataset.cat;
-  document.querySelectorAll(".product").forEach(p=>{
-    p.style.display=(c==="all"||p.dataset.cat===c)?"block":"none";
   });
 
   controls.appendChild(qtyWrap);
-@@ -775,13 +672,11 @@ <h3 class="mt-2 font-semibold">${p.title}</h3>
+  controls.appendChild(btn);
+
+  bottom.appendChild(price);
+  bottom.appendChild(controls);
+
+  content.appendChild(header);
+  content.appendChild(desc);
+  content.appendChild(bottom);
+
+  grid.appendChild(carouselWrap);
+  grid.appendChild(content);
+  card.appendChild(grid);
+
+  return card;
+}
+
+/* ---------------------------
+   Search handler
+   --------------------------- */
+searchBtn.addEventListener('click', e => {
+  e.preventDefault();
+  const brand = brandSelect.value;
+  const model = modelSelect.value;
+  const year = yearSelect.value;
+  resultsContainer.innerHTML = '';
+
+  if (!brand || !model || !year) {
+    resultsContainer.innerHTML = `<div class="p-4 rounded-lg border border-amber-200 bg-amber-50 text-amber-700"><strong>Attention :</strong> sélectionne la marque, le modèle et l'année pour voir les carénages.</div>`;
+    resultsSection.classList.remove('hidden');
+    return;
+  }
+
+  const modelObj = catalog[brand]?.models[model];
+  const products = modelObj?.products || {};
+  const oem = products.oem || null;
+  const acer = products.acerbis || null;
+
+  if (!oem && !acer) {
+    resultsContainer.innerHTML = `<div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm"><h3 class="text-lg font-semibold text-slate-900">Aucun carénage référencé pour ${brand} ${model} ${year}</h3><p class="text-sm text-slate-500 mt-2">Je peux ajouter des références pour ce modèle — dis-moi si tu veux que j'en recherche.</p></div>`;
+    resultsSection.classList.remove('hidden');
+    return;
+  }
+
+  const selectedInfo = `${brand} • ${model} • ${year}`;
+
+  if (oem) { const oemCard = createProductCard(oem, 'OEM', selectedInfo); resultsContainer.appendChild(oemCard); }
+  if (acer) { const acerCard = createProductCard(acer, 'ACERBIS', selectedInfo); resultsContainer.appendChild(acerCard); }
 
   resultsSection.classList.remove('hidden');
   setTimeout(()=>{ resultsSection.scrollIntoView({behavior:'smooth', block:'start'}); }, 120);
- };
 });
 
 /* Optional: set default brand to Yamaha for demo
 brandSelect.value = 'Yamaha'; populateModels('Yamaha');
 */
 </script>
-
 </body>
 </html
