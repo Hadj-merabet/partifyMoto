@@ -71,7 +71,7 @@
             
             <!-- Image Side -->
             <div class="w-full md:w-1/2 bg-slate-50 p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-100">
-                <img id="modal-img" src="" class="max-w-full max-h-[400px] object-contain mix-blend-multiply">
+                <img id="modal-img" src="" alt="Photo produit" class="max-w-full max-h-[400px] object-contain">
             </div>
             
             <!-- Info Side -->
@@ -93,6 +93,16 @@
                 <div class="prose prose-sm text-slate-500 mb-6 flex-grow">
                     <h4 class="text-slate-900 font-semibold mb-2">Description</h4>
                     <p id="modal-desc">Description détaillée...</p>
+                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs not-prose">
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                            <p class="text-slate-400 uppercase tracking-wide text-[10px]">Fournisseur</p>
+                            <a id="modal-supplier" href="#" target="_blank" rel="noopener" class="text-slate-900 font-semibold hover:text-brand-600">Nom fournisseur</a>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                            <p class="text-slate-400 uppercase tracking-wide text-[10px]">Délai livraison réel</p>
+                            <p id="modal-delivery" class="text-slate-900 font-semibold">3 à 5 jours ouvrés</p>
+                        </div>
+                    </div>
                     <h4 class="text-slate-900 font-semibold mt-4 mb-2">Caractéristiques Techniques</h4>
                     <ul id="modal-specs" class="list-disc pl-4 space-y-1">
                         <!-- Specs injected here -->
@@ -317,6 +327,7 @@
                     <div>
                         <h1 class="font-display text-3xl font-bold text-slate-900 tracking-tight">Catalogue Pièces</h1>
                         <p class="text-sm text-slate-500 mt-2" id="catalog-subtitle">Toutes nos références disponibles</p>
+                        <p class="text-xs text-slate-400 mt-2">Sourcing dropshipping via grossistes moto UE (Bihr, Parts Europe, KRM, Wemoto, Tripleclamp).</p>
                     </div>
                     
                     <div class="flex items-center gap-3">
@@ -490,21 +501,21 @@
                 "Beta": ["RR 50", "RR 125", "RR 300", "RR 350 4T"]
             },
             products: [
-                { id: 101, title: "Kit Plastiques Complet (Origine)", price: 189.90, category: "Carénage", type: "OEM", brands: ["Yamaha"], models: ["YZF 250", "YZF 450", "WRF 250"], img: "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg", desc: "Plastiques officiels Yamaha pour un ajustement parfait. Inclus garde-boue avant/arrière, ouïes de radiateur et plaques latérales." },
-                { id: 102, title: "Kit Plastiques Polisport (Adaptable)", price: 119.90, category: "Carénage", type: "Adaptable", brands: ["KTM", "Husqvarna"], models: ["EXC 300", "SXF 450", "TE 300"], img: "https://www.3as-racing.com/pub/media/catalog/product/k/i/kit-plastique-polisport-gris-nardo-gris-ktm-125-à-500-exc-exc-f-2020-2022-d023a.jpg", desc: "Alternative économique de haute qualité. Résistant aux chocs et UV. Coloris officiel orange KTM ou noir." },
-                { id: 103, title: "Kit Déco Factory Replica", price: 139.90, category: "Carénage", type: "Adaptable", brands: ["Yamaha", "Honda", "Kawasaki"], models: ["YZF 250", "CRF 450 R", "KXF 250"], img: "https://images.unsplash.com/photo-1626847037657-fd3622613ce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", desc: "Vinyle épais 300 microns, colle renforcée. Design inspiré des teams officiels US." },
-                { id: 104, title: "Piston Vertex Haute Compression", price: 155.00, category: "Moteur", type: "Adaptable", brands: ["KTM", "Yamaha"], models: ["SXF 250", "YZF 250"], img: "https://m.media-amazon.com/images/I/71R3yL7B+NL._AC_SL1500_.jpg", desc: "Augmentez les performances de votre moteur. Piston forgé avec traitement anti-friction." },
-                { id: 105, title: "Filtre à Huile Hiflofiltro", price: 6.90, category: "Moteur", type: "Adaptable", brands: ["Yamaha", "Honda", "Suzuki", "Kawasaki", "KTM"], models: ["Ténéré 700", "MT-07", "CRF 1100 Africa Twin"], img: "https://m.media-amazon.com/images/I/61NlqJm8VPL._AC_SL1181_.jpg", desc: "Filtre HF204. Indispensable à chaque vidange. Qualité équivalente origine." },
-                { id: 106, title: "Ligne Echappement Akrapovic Titane", price: 1250.00, category: "Moteur", type: "OEM", brands: ["Yamaha", "KTM"], models: ["Ténéré 700", "Adventure 890"], img: "https://m.media-amazon.com/images/I/61X-w+r5+ZL._AC_SL1000_.jpg", desc: "Gain de poids (-2kg) et sonorité envoûtante. Homologué Euro 5." },
-                { id: 107, title: "Guidon Renthal Twinwall 997", price: 189.00, category: "Protection", type: "Adaptable", brands: ["KTM", "Honda", "Yamaha", "Kawasaki"], models: ["SXF 450", "CRF 450 R", "YZF 450"], img: "https://m.media-amazon.com/images/I/61t-Xb+vj+L._AC_SL1500_.jpg", desc: "Le guidon le plus solide du marché. Tube dans tube. Utilisé par tous les tops pilotes." },
-                { id: 108, title: "Sabot Moteur AXP Racing", price: 145.00, category: "Protection", type: "Adaptable", brands: ["Yamaha", "KTM", "Husqvarna"], models: ["Ténéré 700", "Adventure 890", "Norden 901"], img: "https://m.media-amazon.com/images/I/61P9Yg+gq+L._AC_SL1000_.jpg", desc: "Polyéthylène haute densité (PHD) de 8mm d'épaisseur. Protège carters et biellettes." },
-                { id: 109, title: "Kit Chaîne DID Renforcé Or", price: 110.00, category: "Cycle", type: "Adaptable", brands: ["Yamaha", "Honda", "Suzuki", "Kawasaki", "KTM", "Beta"], models: ["YZ 125", "MT-07", "Z900"], img: "https://m.media-amazon.com/images/I/71w+b+vj+L._AC_SL1500_.jpg", desc: "Chaîne X-Ring à faible friction. Durée de vie doublée par rapport à l'origine." },
-                { id: 110, title: "Pneu Michelin Starcross 6 Medium", price: 79.90, category: "Cycle", type: "Adaptable", brands: ["KTM", "Yamaha", "Honda"], models: ["SXF 450", "YZF 450", "CRF 450 R"], img: "https://www.dafy-moto.com/images/product/medium/pneu-michelin-starcross-6-medium-soft-arriere-632008f170423.jpg", desc: "Dernière génération de pneu cross. Grip exceptionnel sur terre meuble et mixte." },
-                { id: 111, title: "Levier de Frein Repliable", price: 45.00, category: "Cycle", type: "Adaptable", brands: ["KTM", "Husqvarna", "GasGas"], models: ["EXC 300", "TE 300", "EC 300"], img: "https://m.media-amazon.com/images/I/61r-Xb+vj+L._AC_SL1500_.jpg", desc: "En aluminium taillé masse. Se replie en cas de chute pour éviter la casse." },
-                { id: 112, title: "Bougie NGK Iridium CR9EIX", price: 15.50, category: "Moteur", type: "Adaptable", brands: ["Yamaha", "Kawasaki", "Suzuki"], models: ["MT-09", "Z900", "GSX-S 750"], img: "https://m.media-amazon.com/images/I/71+b+vj+L._AC_SL1500_.jpg", desc: "Meilleure étincelle, démarrage facilité et durée de vie accrue." },
-                { id: 113, title: "Plaquettes de Frein Brembo Sinter", price: 35.00, category: "Cycle", type: "OEM", brands: ["KTM", "Husqvarna", "Ducati"], models: ["EXC 300", "Duke 890"], img: "https://m.media-amazon.com/images/I/81+b+vj+L._AC_SL1500_.jpg", desc: "Métal fritté pour un freinage puissant et constant même dans la boue." },
-                { id: 114, title: "Crash Bars SW-Motech", price: 230.00, category: "Protection", type: "Adaptable", brands: ["Yamaha", "Honda", "Suzuki"], models: ["Ténéré 700", "Africa Twin", "V-Strom 650"], img: "https://sw-motech.com/cosmoshop/default/pix/a/g/sbl_06_799_10001_b_2_xl.jpg", desc: "Protection tubulaire en acier robuste. Indispensable pour l'aventure." },
-                { id: 115, title: "Rétroviseurs Embout de Guidon", price: 55.00, category: "Cycle", type: "Adaptable", brands: ["Yamaha", "Kawasaki"], models: ["MT-07", "MT-09", "Z650", "Z900"], img: "https://m.media-amazon.com/images/I/61s+b+vj+L._AC_SL1500_.jpg", desc: "Style Cafe Racer agressif. Homologués CE." }
+                { id: 101, title: "Kit Plastiques Complet Acerbis", price: 169.90, category: "Carénage", type: "Adaptable", brands: ["Yamaha"], models: ["YZF 250", "YZF 450", "WRF 250"], img: "https://images.unsplash.com/photo-1558980394-0c39336d7d57?auto=format&fit=crop&w=900&q=80", desc: "Kit plastique complet Acerbis, finition OEM, excellente tenue UV et montage plug-and-play.", supplier: "Bihr (dropshipping B2B)", supplierUrl: "https://www.bihr.eu/fr", delivery: "Livraison 48h entrepôt FR + 2 à 3 jours client", supplierSku: "ACB-KIT-YZF", cost: 132.0 },
+                { id: 102, title: "Kit Plastiques Polisport KTM/HVA", price: 124.90, category: "Carénage", type: "Adaptable", brands: ["KTM", "Husqvarna"], models: ["EXC 300", "SXF 450", "TE 300"], img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80", desc: "Plastiques Polisport flexibles et résistants, excellent rapport qualité/prix pour l'enduro engagé.", supplier: "KRM Distribution", supplierUrl: "https://www.krm-distribution.com/", delivery: "Expédié 24-48h + 2 à 4 jours transport", supplierSku: "POL-KIT-EXC", cost: 97.0 },
+                { id: 103, title: "Kit Déco Factory Replica 300 microns", price: 129.90, category: "Carénage", type: "Adaptable", brands: ["Yamaha", "Honda", "Kawasaki"], models: ["YZF 250", "CRF 450 R", "KXF 250"], img: "https://images.unsplash.com/photo-1626847037657-fd3622613ce3?auto=format&fit=crop&w=900&q=80", desc: "Kit déco anti-rayure avec laminage épais 300 microns, colle haute adhérence spécial cross/enduro.", supplier: "Tripleclamp Moto", supplierUrl: "https://www.tripleclampmoto.fr/", delivery: "Production 2 jours + livraison 48h", supplierSku: "TCM-DECO-FACT", cost: 88.0 },
+                { id: 104, title: "Piston Vertex Haute Compression", price: 159.90, category: "Moteur", type: "Adaptable", brands: ["KTM", "Yamaha"], models: ["SXF 250", "YZF 250"], img: "https://images.unsplash.com/photo-1558981033-f5e2ddd9c57e?auto=format&fit=crop&w=900&q=80", desc: "Piston forgé Vertex HC pour relance moteur plus franche et meilleure endurance thermique.", supplier: "Parts Europe", supplierUrl: "https://www.partseurope.eu/", delivery: "Disponibilité UE J+1, livraison client en 3 à 5 jours", supplierSku: "VTX-HC-250F", cost: 121.0 },
+                { id: 105, title: "Filtre à Huile Hiflofiltro HF204", price: 9.90, category: "Moteur", type: "Adaptable", brands: ["Yamaha", "Honda", "Suzuki", "Kawasaki", "KTM"], models: ["Ténéré 700", "MT-07", "CRF 1100 Africa Twin"], img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80", desc: "Filtre Hiflofiltro certifié TÜV, filtration fine, parfait pour entretien courant et révisions atelier.", supplier: "Wemoto", supplierUrl: "https://www.wemoto.fr/", delivery: "Stock FR expédié sous 24h, livraison 2 à 3 jours", supplierSku: "HF204", cost: 5.4 },
+                { id: 106, title: "Ligne Akrapovič Titane Adventure", price: 1190.00, category: "Moteur", type: "OEM", brands: ["Yamaha", "KTM"], models: ["Ténéré 700", "Adventure 890"], img: "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?auto=format&fit=crop&w=900&q=80", desc: "Ligne titane Akrapovič homologuée route, gain de poids et sonorité premium sans compromis fiabilité.", supplier: "Bihr Premium", supplierUrl: "https://www.bihr.eu/fr", delivery: "Précommande fournisseur : 5 à 8 jours ouvrés", supplierSku: "AKR-TI-ADV", cost: 958.0 },
+                { id: 107, title: "Guidon Renthal Twinwall 997", price: 179.90, category: "Protection", type: "Adaptable", brands: ["KTM", "Honda", "Yamaha", "Kawasaki"], models: ["SXF 450", "CRF 450 R", "YZF 450"], img: "https://images.unsplash.com/photo-1558618047-fcd25c85cd64?auto=format&fit=crop&w=900&q=80", desc: "Guidon Twinwall double tube, référence en résistance sur moto cross et supermotard.", supplier: "Parts Europe", supplierUrl: "https://www.partseurope.eu/", delivery: "Stock central UE, livraison estimée 3 à 4 jours", supplierSku: "RTH-TW-997", cost: 136.0 },
+                { id: 108, title: "Sabot Moteur AXP HDPE 8mm", price: 149.90, category: "Protection", type: "Adaptable", brands: ["Yamaha", "KTM", "Husqvarna"], models: ["Ténéré 700", "Adventure 890", "Norden 901"], img: "https://images.unsplash.com/photo-1515777315835-281b94c9589f?auto=format&fit=crop&w=900&q=80", desc: "Sabot AXP en polyéthylène 8 mm couvrant carters et biellettes pour pratique trail et hard enduro.", supplier: "KRM Distribution", supplierUrl: "https://www.krm-distribution.com/", delivery: "Traitement 48h + transport 2 à 4 jours", supplierSku: "AXP-SABOT-ADV", cost: 112.0 },
+                { id: 109, title: "Kit Chaîne DID X-Ring Or", price: 119.90, category: "Cycle", type: "Adaptable", brands: ["Yamaha", "Honda", "Suzuki", "Kawasaki", "KTM", "Beta"], models: ["YZ 125", "MT-07", "Z900"], img: "https://images.unsplash.com/photo-1580310614729-ccd69652491d?auto=format&fit=crop&w=900&q=80", desc: "Kit chaîne DID X-Ring, usure réduite, tension stable et longévité adaptée aux gros rouleurs.", supplier: "Wemoto", supplierUrl: "https://www.wemoto.fr/", delivery: "Expédition sous 24h, livraison 2 à 3 jours", supplierSku: "DID-XR-525", cost: 87.0 },
+                { id: 110, title: "Pneu Michelin Starcross 6 Medium", price: 89.90, category: "Cycle", type: "Adaptable", brands: ["KTM", "Yamaha", "Honda"], models: ["SXF 450", "YZF 450", "CRF 450 R"], img: "https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=900&q=80", desc: "Pneu cross Michelin Starcross 6 Medium, excellent grip sur terrain intermédiaire et bonne durée de vie.", supplier: "Parts Europe", supplierUrl: "https://www.partseurope.eu/", delivery: "Stock UE variable, livraison constatée 3 à 6 jours", supplierSku: "MIC-STX6-M", cost: 66.0 },
+                { id: 111, title: "Levier de Frein Repliable CNC", price: 49.90, category: "Cycle", type: "Adaptable", brands: ["KTM", "Husqvarna", "GasGas"], models: ["EXC 300", "TE 300", "EC 300"], img: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=900&q=80", desc: "Levier CNC repliable anti-casse avec réglage d'écartement rapide pour un meilleur feeling au freinage.", supplier: "Tripleclamp Moto", supplierUrl: "https://www.tripleclampmoto.fr/", delivery: "Préparation 24h, livraison 48 à 72h", supplierSku: "TCM-LEV-RPL", cost: 31.0 },
+                { id: 112, title: "Bougie NGK Iridium CR9EIX", price: 18.90, category: "Moteur", type: "Adaptable", brands: ["Yamaha", "Kawasaki", "Suzuki"], models: ["MT-09", "Z900", "GSX-S 750"], img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80", desc: "Bougie NGK Iridium pour démarrage rapide, combustion plus propre et longévité supérieure à l'origine.", supplier: "Wemoto", supplierUrl: "https://www.wemoto.fr/", delivery: "En stock FR, expédié le jour même avant 14h", supplierSku: "NGK-CR9EIX", cost: 11.7 },
+                { id: 113, title: "Plaquettes Brembo Sinter Avant", price: 39.90, category: "Cycle", type: "OEM", brands: ["KTM", "Husqvarna", "Ducati"], models: ["EXC 300", "Duke 890"], img: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=900&q=80", desc: "Plaquettes Brembo métal fritté pour freinage constant à chaud, pluie ou usage off-road.", supplier: "Bihr (dropshipping B2B)", supplierUrl: "https://www.bihr.eu/fr", delivery: "Disponibilité immédiate : 2 à 4 jours ouvrés", supplierSku: "BRM-SINT-AV", cost: 26.0 },
+                { id: 114, title: "Crash Bars SW-Motech Adventure", price: 239.90, category: "Protection", type: "Adaptable", brands: ["Yamaha", "Honda", "Suzuki"], models: ["Ténéré 700", "Africa Twin", "V-Strom 650"], img: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=900&q=80", desc: "Crash bars acier SW-Motech avec points d'ancrage renforcés, protection moteur et carénages.", supplier: "SW-Motech B2B", supplierUrl: "https://sw-motech.com/", delivery: "Produit import DE : livraison 4 à 7 jours", supplierSku: "SWM-CRB-ADV", cost: 182.0 },
+                { id: 115, title: "Rétroviseurs Embout de Guidon CE", price: 59.90, category: "Cycle", type: "Adaptable", brands: ["Yamaha", "Kawasaki"], models: ["MT-07", "MT-09", "Z650", "Z900"], img: "https://images.unsplash.com/photo-1529429617124-aee711ecfc37?auto=format&fit=crop&w=900&q=80", desc: "Paire de rétroviseurs embout de guidon homologués CE, aluminium anodisé, vision élargie.", supplier: "Parts Europe", supplierUrl: "https://www.partseurope.eu/", delivery: "Disponibilité standard : 3 à 5 jours", supplierSku: "PE-MIR-BAR", cost: 42.0 }
             ],
             news: [
                 { title: "MXGP 2024 : Prado champion !", img: "https://images.unsplash.com/photo-1517056241258-2082216ebc51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", date: "12 Oct 2024", tag: "Compétition" },
@@ -673,6 +684,11 @@
             }
         }
 
+        function getFallbackImage(label = 'Produit') {
+            const text = encodeURIComponent(label);
+            return `https://placehold.co/800x600/f8fafc/334155?text=${text}`;
+        }
+
         function renderCatalog(searchTerm = '') {
             const container = document.getElementById('product-grid');
             const noResults = document.getElementById('no-results');
@@ -734,12 +750,14 @@
                         <span class="absolute top-3 right-3 bg-white text-slate-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10 border border-slate-200 shadow-sm">${p.type}</span>
                         ${compatBadge}
                         <div class="relative h-48 overflow-hidden bg-slate-50 p-6 flex items-center justify-center cursor-pointer" onclick="openProductModal(${p.id})">
-                            <img src="${p.img}" class="object-contain w-full h-full mix-blend-multiply group-hover:scale-110 transition-transform duration-500">
+                            <img src="${p.img}" alt="${p.title}" onerror="this.onerror=null;this.src=getFallbackImage('Photo produit');" class="object-contain w-full h-full group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="p-5 flex-1 flex flex-col">
                             <div class="text-xs text-slate-400 font-medium mb-1">${p.category}</div>
                             <h3 class="font-medium text-slate-900 mb-1 line-clamp-2 cursor-pointer hover:text-brand-600" onclick="openProductModal(${p.id})">${p.title}</h3>
-                            <p class="text-xs text-slate-500 mb-4 line-clamp-2">${p.desc}</p>
+                            <p class="text-xs text-slate-500 mb-2 line-clamp-2">${p.desc}</p>
+                            <p class="text-[11px] text-slate-400 mb-3">Fournisseur: ${p.supplier}</p>
+                            <p class="text-[11px] text-slate-400 mb-4">${p.delivery}</p>
                             <div class="mt-auto flex items-center justify-between">
                                 <span class="font-display font-bold text-lg text-slate-900">${p.price.toFixed(2)} €</span>
                                 <div class="flex gap-2">
@@ -768,12 +786,18 @@
             const p = db.products.find(x => x.id === id);
             if (!p) return;
 
-            document.getElementById('modal-img').src = p.img;
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = p.img;
+            modalImg.alt = p.title;
+            modalImg.onerror = () => { modalImg.onerror = null; modalImg.src = getFallbackImage(p.title); };
             document.getElementById('modal-title').innerText = p.title;
             document.getElementById('modal-brand').innerText = p.brands[0] || "Universel";
             document.getElementById('modal-ref').innerText = `REF: PTY-${p.id}`;
             document.getElementById('modal-price').innerText = p.price.toFixed(2) + " €";
-            document.getElementById('modal-desc').innerText = p.desc + " Conçu pour résister aux conditions extrêmes du motocross et de l'enduro. Testé par nos pilotes partenaires.";
+            document.getElementById('modal-desc').innerText = p.desc;
+            document.getElementById('modal-supplier').innerText = p.supplier;
+            document.getElementById('modal-supplier').href = p.supplierUrl;
+            document.getElementById('modal-delivery').innerText = p.delivery;
             
             // Compatibility Check inside Modal
             const compatBox = document.getElementById('modal-compatibility-box');
@@ -788,7 +812,8 @@
             document.getElementById('modal-specs').innerHTML = `
                 <li class="text-xs">Type: ${p.type}</li>
                 <li class="text-xs">Catégorie: ${p.category}</li>
-                <li class="text-xs">Poids estimé: ${(Math.random() * 2).toFixed(1)} kg</li>
+                <li class="text-xs">Réf fournisseur: ${p.supplierSku}</li>
+                <li class="text-xs">Marge estimée: ${((p.price - p.cost) / p.price * 100).toFixed(0)}%</li>
                 <li class="text-xs">Garantie: 2 ans constructeur</li>
             `;
 
@@ -865,7 +890,7 @@
             container.innerHTML = cart.map(item => `
                 <div class="flex gap-4 p-4 bg-white rounded-lg border border-slate-100 items-center">
                     <div class="w-20 h-20 bg-slate-50 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
-                        <img src="${item.img}" class="w-full h-full object-contain mix-blend-multiply">
+                        <img src="${item.img}" alt="${item.title}" onerror="this.onerror=null;this.src=getFallbackImage('Photo produit');" class="w-full h-full object-contain">
                     </div>
                     <div class="flex-grow">
                         <h4 class="font-medium text-slate-900 text-sm line-clamp-1">${item.title}</h4>
