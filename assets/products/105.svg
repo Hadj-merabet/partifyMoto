@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#334155"/></linearGradient></defs>
-<rect width="1200" height="800" fill="url(#g)"/>
-<rect x="60" y="60" width="1080" height="680" rx="32" fill="#ffffff" opacity="0.08"/>
-<text x="600" y="320" text-anchor="middle" fill="#fb923c" font-size="46" font-family="Arial, sans-serif" font-weight="700">Partify Moto</text>
-<text x="600" y="390" text-anchor="middle" fill="#f8fafc" font-size="54" font-family="Arial, sans-serif" font-weight="700">Filtre à Huile HF204</text>
-<text x="600" y="450" text-anchor="middle" fill="#cbd5e1" font-size="28" font-family="Arial, sans-serif">Visuel produit (à remplacer par photo fournisseur sous licence)</text>
-</svg>
