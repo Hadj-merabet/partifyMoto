@@ -30,7 +30,11 @@
 </div>
 
 <script>
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+function safeParseCart() {
+  try { return JSON.parse(localStorage.getItem("cart")) || []; }
+  catch (e) { return []; }
+}
+const cart = safeParseCart();
 const container = document.getElementById("cartItems");
 let total = 0;
 
